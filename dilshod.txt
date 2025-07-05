@@ -1,0 +1,65 @@
+Dilshodbek Khujaev
+===================
+
+Email: dkhujaev@cmu.edu
+LinkedIn: linkedin.com/in/dilshodbek-khujaev
+GitHub: github.com/dxz05
+Location: Education City, Qatar
+
+EDUCATION
+---------
+Carnegie Mellon University Qatar | Education City, Qatar
+August 2024 – May 2028
+Bachelor of Computer Science
+• QCPC 2024 Winner: Claimed first place in the Qatar Collegiate Programming Contest 2024.
+• ACPC 2024 Bronze medalist: Achieved a bronze medal in the Arab & African Collegiate Programming Championship.
+
+EXPERIENCE
+----------
+
+Competitive Programming
+• 6+ years of experience on Codeforces (max rating 2258, top 1% on platform), CodeChef, AtCoder, and LeetCode, solving 3000+ problems that span dynamic programming, graph algorithms, network flow, and advanced data structures. Skilled at optimizing solutions for both time and space complexity.
+• Co-authored 5 CodeChef contests and created 30+ interview-style problems at WeCreateProblems (WeCP), emphasizing time/space optimization, algorithmic design, and best practices for high-level technical interviews.
+
+National Olympiads in Informatics
+Tashkent, Uzbekistan
+
+Coach & Team Leader
+January 2024 – August 2024
+• Mentored and trained top-performing students in advanced algorithms and data structures, leading to multiple national achievements and an IOI qualification.
+• In collaboration with the Ministry of Digital Technologies, organized an educational camp for girls interested in IT, fostering diversity and inclusion in the field.
+• Served as the Coach and Team Leader for Uzbekistan in the European Girls' Olympiad in Informatics (EGOI 2024), where a student achieved a bronze medal.
+
+Scientific Committee
+September 2023 – August 2024
+• Created more than 40 IOI-styled competitive programming problems that include advanced algorithms and data structures, including graph theory, dynamic programming, and more.
+  ◦ Each problem consisted of 3–9 smaller subproblems, each requiring additional preparation and a feedback system, allowing participants to earn partial credit. These problems were used in regional olympiads that served as selection rounds for international olympiads (IOI, EGOI, IZhO, etc.).
+• Developed more than 25 ICPC-styled problems for various regional olympiads for high school students, where the hardest problems played a crucial role in determining the winners.
+
+AWARDS & ACHIEVEMENTS
+--------------------
+• IOI (Bronze) – International Olympiad in Informatics, Szeged, Hungary, 2023
+• ACPC (Bronze) – Arab & African Collegiate Programming Championship, Luxor, Egypt, 2024
+• QCPC (Winner) – Qatar Collegiate Programming Contest, Education City, Qatar, 2024
+• APIO (Bronze) – Asia Pacific Informatics Olympiad, Online, China, 2023
+• IZhO (Silver) – Int'l Zhautykov Olympiad in Computer Science, Almaty, Kazakhstan, 2022
+• UzNOI (Winner) – Uzbekistan National Olympiad in Informatics, Tashkent, 2023
+• Meta Hacker Cup (Round 3) – Top 300 Worldwide, Online, 2023
+• IT-Park Cup (2020–2021) – Awarded $5,000 (U18 1st) and $3,500 (Team 2nd), Tashkent
+
+PROJECTS
+--------
+
+Co-founder, CP-Uz Community
+• Launched a competitive programming hub in Uzbekistan with 1,200+ members, offering algorithmic resources, workshops, and contests to elevate members' problem-solving skills.
+• Provided mentorship programs and educational content that significantly improved participants' advanced programming and analytical capabilities.
+
+Hue 2D Game, Term Project (GitHub)
+• Developed a multi-level 2D color-based physics game in Python using the CMU Graphics Library, featuring custom collision detection, dynamic color-shifting puzzles, and optimized rendering.
+• Built an object-oriented architecture for scalability, ensuring straightforward integration of new levels and features.
+
+SKILLS & INTERESTS
+------------------
+Programming Languages: C++ (14, 17, 20, 23), Python (3.x)
+Spoken Languages: Uzbek (native), English (C1), Russian (C1)
+Interests: Table tennis, squash, board games.

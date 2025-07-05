@@ -1,0 +1,9 @@
+# Netlify redirects file (if using Netlify)
+# This file enables subdomain-like behavior on Netlify
+
+# Redirect subdomains to subdirectories
+https://temur.khujaev.com/* https://khujaev.com/temur/:splat 200!
+https://dilshod.khujaev.com/* https://khujaev.com/dilshod/:splat 200!
+
+# Optional: Redirect www to non-www
+https://www.khujaev.com/* https://khujaev.com/:splat 301!

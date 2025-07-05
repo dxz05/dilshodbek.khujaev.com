@@ -1,0 +1,43 @@
+{
+  "rewrites": [
+    {
+      "source": "/temur",
+      "destination": "/temur/index.html"
+    },
+    {
+      "source": "/dilshod",
+      "destination": "/dilshod/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/temur.khujaev.com/(.*)",
+      "destination": "/temur/$1",
+      "permanent": false
+    },
+    {
+      "source": "/dilshod.khujaev.com/(.*)",
+      "destination": "/dilshod/$1",
+      "permanent": false
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ]
+}

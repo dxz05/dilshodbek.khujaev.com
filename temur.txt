@@ -1,0 +1,89 @@
+Temurbek Khujaev
+==================
+
+Email: temurbekkhujaev@gmail.com
+LinkedIn: linkedin.com/in/tkhujaev
+GitHub: github.com/xtemur
+Upwork: upwork.com/freelancers/temur
+
+SUMMARY
+-------
+Algorithmic engineer and competitive programmer with 4 years of industry experience in large-scale optimisation (Java, Python, C++). ICPC World Finals contestant, IOI National Team representative, and Codeforces Master (top 1%). Built and profiled metaheuristic scheduling engines that cut runtime and raised profit. Skilled in data science tools (PyTorch, pandas) and eager to apply strong problem-solving to AI and research-driven products.
+
+EXPERIENCE
+----------
+
+Quantitative Risk Analyst & ML Engineer – project based contract
+Mar. 2025 – present
+ResearchWorks LTD. Part-time Project (Python, LightGBM, SQLite, Statistical Analysis)
+Tashkent, Uzbekistan
+• Developed behavioral risk prediction system for proprietary day traders using machine learning to predict negative PnL with 70%+ precision and Sharpe ratio over than 0.5.
+• Engineered 20+ behavioral features from trading data (revenge trading, loss aversion, position sizing) with proper temporal validation to prevent data leakage.
+• Built end-to-end pipeline: PropreReports API ingestion → SQLite database → feature engineering → LightGBM model → automated email alerts with calibrated confidence scores.
+• Implemented time-series cross-validation and backtesting framework with transaction cost modeling, achieving lower Expected Calibration Error for risk predictions.
+
+Optimization Engineer, Operations Research & Development
+Sep. 2022 – Feb. 2025
+Optifly - Airline Scheduling Software, (Java, Python)
+Dublin, Ireland (Remote)
+• Recommendation letter from Optifly Head of Research: View letter
+• Applied advanced heuristic and metaheuristic techniques (e.g. Genetic Algorithms, TreeSearch Heuristics) to streamline airline scheduling workflows, reducing performance bottlenecks and elevating profit and speed performance at least by 10% and 25% respectively.
+• Engineered high-priority constraint programming features within demanding client deadlines, fortifying both system reliability and operational throughput in combination of Java and Python languages.
+• Led in-depth performance analyses to pinpoint and resolve bottlenecks, software defects, and suboptimal solution paths, driving improvements in runtime efficiency and overall solution quality.
+• Adopted and refined specialized data structures and advanced algorithms, significantly amplifying the scheduling engine's scalability for intricate constraints.
+• Rapidly learned airline industry domain intricacies, translating client expectations into effective, data-driven functionalities that exceeded operational targets.
+• Collaborated with stakeholders to clarify loosely defined scheduling preferences, translating them into clear data parameters and integrating them into the core algorithm — ensuring results aligned with customer goals.
+• Explored and introduced advanced mathematical techniques (e.g., refined constraints, multi-objective optimization) to significantly boost performance and accuracy, while preserving clean, maintainable code.
+• Adhered to robust coding standards (e.g., version control, thorough testing, code reviews) that ensured new features were smoothly integrated and upheld system stability.
+
+ICPC Team Coach and Algorithms Mentor
+Oct. 2022 – Jan. 2023
+Innopolis University
+Innopolis, Russia
+• Organized programming competitions, delivered lectures on advanced algorithms and trained university teams for the ICPC (International Collegiate Programming Contest), leading to qualifying of a team to World Finals
+
+Data Scientist, | Reinforcement Learning Framework
+Jan. 2022 – Jun. 2022
+Huawei R&D, AI Lab, (Python, C/C++)
+Moscow, Russia (Remote)
+• Contributed to the development of a reinforcement learning framework (inspired by MuZero) for strategic decision-making, identifying optimization opportunities through comprehensive code-base analysis and profiling.
+• Enhanced computational efficiency by migrating to high-performance data structures, accelerating core operations and throughput i.e. replacing segment tree data structure used in framework with faster alternative.
+
+Optimization Engineer & Operations Research Developer
+Feb. 2021 – Sep. 2022
+Upwork (Python, C/C++, ML/DS)
+• Analyzed client data with Pandas and NumPy to spot bottlenecks, then tuned model parameters for more accurate, efficient results.
+• Designed and built custom optimization algorithms and optimization in Python with OR-Tools/Gurobi, improving solution quality of the different projects
+• Maintained a 100% job-success score and 5-star Top Rated Plus ratings through clear communication, on-time delivery, and proactive updates
+
+AWARDS & ACHIEVEMENTS
+--------------------
+• ICPC World Finals (Contestant) – International Collegiate Programming Contest WF, Luxor, Egypt, 2024
+• ICPC Northern Eurasia Finals (Second Diploma) – Regional championship, Saint Petersburg, Russia, 2022
+• Huawei Challenge Hackathon (2nd Place) – Optimised rule-matching engine, Innopolis, Russia, 2021
+• Innopolis University Diamonds – Award for hackathon and research contributions, Innopolis, Russia, 2022
+• International Olympiad in Informatics (National Team) – Represented Uzbekistan, Tehran, Iran, 2017
+• Lomonosov festival: Olympiad in Informatics (1st place), Tashkent, 2017
+• IX Eurasian Olympiad in Informatics (Silver medal), Almaty, 2017
+• International Zhautikov Olympiad (Bronze) – first medal in Uzbekistan team history, Almaty, 2016
+• Codeforces Master (2221), Hackerrank top 99.8 percentile – Top 1% in global rating distribution
+
+EDUCATION
+---------
+Westminster International University in Tashkent
+Tashkent, Uzbekistan
+M.Sc. in Business Intelligence & Analytics (first-year coursework completed)
+Sep. 2024 – August 2026
+
+Innopolis University, B.Sc. in Computer Science with a track in Data Science
+Innopolis, Russia
+Program taught in English with an international faculty and student community.
+Aug. 2018 – Aug. 2022
+
+TECHNICAL SKILLS
+----------------
+Programming Languages: Python, Java, C/C++
+
+Machine Learning & Data Science: TensorFlow, PyTorch, Scikit-learn, Keras, EDA, Hypothesis Testing, pandas, NumPy, SciPy, Matplotlib, Seaborn, SQL, Microsoft Excel, Git, XGboost, TimeSeriesAnalysis
+
+OR & Optimization: Metaheuristics, Genetic Algorithms, Tree Search Heuristics, Graph Algorithms, Network Flows, Constraint Programming, LP/IP, OR-Tools, Gurobi, Mathematical Optimization, Time Complexity Analysis, Software Profiling, Optimization Modeling

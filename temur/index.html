@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temurbek Khujaev - Algorithmic Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 2px solid #eee;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            background-color: #ecf0f1;
+        }
+        
+        section {
+            margin: 40px 0;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .summary {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .experience-item, .education-item {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 3px solid #3498db;
+        }
+        
+        .job-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2c3e50;
+        }
+        
+        .job-meta {
+            color: #666;
+            font-style: italic;
+            margin: 5px 0;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        
+        .achievement {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .skills-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .skill-category {
+            margin-bottom: 15px;
+        }
+        
+        .skill-category strong {
+            color: #2c3e50;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+        
+        ul {
+            list-style-position: inside;
+            margin-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Temurbek Khujaev</h1>
+            <p>Algorithmic Engineer & Competitive Programmer</p>
+            <div class="contact-info">
+                <a href="mailto:temurbekkhujaev@gmail.com">Email</a>
+                <a href="https://linkedin.com/in/tkhujaev" target="_blank">LinkedIn</a>
+                <a href="https://github.com/xtemur" target="_blank">GitHub</a>
+                <a href="https://upwork.com/freelancers/temur" target="_blank">Upwork</a>
+            </div>
+        </header>
+
+        <section class="summary">
+            <h2>Summary</h2>
+            <p>Algorithmic engineer and competitive programmer with 4 years of industry experience in large-scale optimisation (Java, Python, C++). ICPC World Finals contestant, IOI National Team representative, and Codeforces Master (top 1%). Built and profiled metaheuristic scheduling engines that cut runtime and raised profit. Skilled in data science tools (PyTorch, pandas) and eager to apply strong problem-solving to AI and research-driven products.</p>
+        </section>
+
+        <section>
+            <h2>Experience</h2>
+            
+            <div class="experience-item">
+                <div class="job-title">Quantitative Risk Analyst & ML Engineer</div>
+                <div class="job-meta">ResearchWorks LTD · Mar. 2025 – present · Part-time Project (Python, LightGBM, SQLite)</div>
+                <ul>
+                    <li>Developed behavioral risk prediction system for proprietary day traders using machine learning to predict negative PnL with 70%+ precision and Sharpe ratio over than 0.5.</li>
+                    <li>Engineered 20+ behavioral features from trading data (revenge trading, loss aversion, position sizing) with proper temporal validation to prevent data leakage.</li>
+                    <li>Built end-to-end pipeline: PropreReports API ingestion → SQLite database → feature engineering → LightGBM model → automated email alerts with calibrated confidence scores.</li>
+                    <li>Implemented time-series cross-validation and backtesting framework with transaction cost modeling, achieving lower Expected Calibration Error for risk predictions.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Optimization Engineer, Operations Research & Development</div>
+                <div class="job-meta">Optifly - Airline Scheduling Software · Sep. 2022 – Feb. 2025 · Dublin, Ireland (Remote)</div>
+                <ul>
+                    <li>Applied advanced heuristic and metaheuristic techniques (e.g. Genetic Algorithms, TreeSearch Heuristics) to streamline airline scheduling workflows, reducing performance bottlenecks and elevating profit and speed performance at least by 10% and 25% respectively.</li>
+                    <li>Engineered high-priority constraint programming features within demanding client deadlines, fortifying both system reliability and operational throughput in combination of Java and Python languages.</li>
+                    <li>Led in-depth performance analyses to pinpoint and resolve bottlenecks, software defects, and suboptimal solution paths, driving improvements in runtime efficiency and overall solution quality.</li>
+                    <li>Adopted and refined specialized data structures and advanced algorithms, significantly amplifying the scheduling engine's scalability for intricate constraints.</li>
+                    <li>Rapidly learned airline industry domain intricacies, translating client expectations into effective, data-driven functionalities that exceeded operational targets.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">ICPC Team Coach and Algorithms Mentor</div>
+                <div class="job-meta">Innopolis University · Oct. 2022 – Jan. 2023 · Innopolis, Russia</div>
+                <ul>
+                    <li>Organized programming competitions, delivered lectures on advanced algorithms and trained university teams for the ICPC, leading to qualifying of a team to World Finals</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Data Scientist | Reinforcement Learning Framework</div>
+                <div class="job-meta">Huawei R&D, AI Lab · Jan. 2022 – Jun. 2022 · Moscow, Russia (Remote)</div>
+                <ul>
+                    <li>Contributed to the development of a reinforcement learning framework (inspired by MuZero) for strategic decision-making, identifying optimization opportunities through comprehensive code-base analysis and profiling.</li>
+                    <li>Enhanced computational efficiency by migrating to high-performance data structures, accelerating core operations and throughput.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Optimization Engineer & Operations Research Developer</div>
+                <div class="job-meta">Upwork · Feb. 2021 – Sep. 2022 · Freelance</div>
+                <ul>
+                    <li>Analyzed client data with Pandas and NumPy to spot bottlenecks, then tuned model parameters for more accurate, efficient results.</li>
+                    <li>Designed and built custom optimization algorithms and optimization in Python with OR-Tools/Gurobi, improving solution quality of the different projects</li>
+                    <li>Maintained a 100% job-success score and 5-star Top Rated Plus ratings through clear communication, on-time delivery, and proactive updates</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Awards & Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement">ICPC World Finals (Contestant) – Luxor, Egypt, 2024</div>
+                <div class="achievement">ICPC Northern Eurasia Finals (Second Diploma) – 2022</div>
+                <div class="achievement">Huawei Challenge Hackathon (2nd Place) – 2021</div>
+                <div class="achievement">International Olympiad in Informatics (National Team) – 2017</div>
+                <div class="achievement">Codeforces Master (2221) – Top 1% global rating</div>
+                <div class="achievement">IX Eurasian Olympiad in Informatics (Silver medal) – 2017</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <div class="education-item">
+                <div class="job-title">M.Sc. in Business Intelligence & Analytics</div>
+                <div class="job-meta">Westminster International University in Tashkent · Sep. 2024 – Aug. 2026</div>
+            </div>
+            
+            <div class="education-item">
+                <div class="job-title">B.Sc. in Computer Science with track in Data Science</div>
+                <div class="job-meta">Innopolis University · Aug. 2018 – Aug. 2022</div>
+                <p>Program taught in English with an international faculty and student community.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Technical Skills</h2>
+            <div class="skills-section">
+                <div class="skill-category">
+                    <strong>Programming Languages:</strong> Python, Java, C/C++
+                </div>
+                <div class="skill-category">
+                    <strong>Machine Learning & Data Science:</strong> TensorFlow, PyTorch, Scikit-learn, Keras, EDA, Hypothesis Testing, pandas, NumPy, SciPy, Matplotlib, Seaborn, SQL, Microsoft Excel, Git, XGboost, TimeSeriesAnalysis
+                </div>
+                <div class="skill-category">
+                    <strong>OR & Optimization:</strong> Metaheuristics, Genetic Algorithms, Tree Search Heuristics, Graph Algorithms, Network Flows, Constraint Programming, LP/IP, OR-Tools, Gurobi, Mathematical Optimization, Time Complexity Analysis, Software Profiling, Optimization Modeling
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
