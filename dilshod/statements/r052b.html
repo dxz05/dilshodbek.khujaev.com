@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product — English statement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}]});"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-name" href="../index.html">dilshod<span>@</span>khujaev<span>.com</span></a>
+            <div class="nav-links">
+                <a href="../index.html#tasks">← Tasks authored</a>
+                <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="prob-head">
+            <h1>Product</h1>
+            <div class="prob-meta">
+                <span class="chip">Robocontest Round 52 · R052B</span>
+                <span class="chip">time 1 s · memory 32 MB</span>
+                <a href="https://robocontest.uz/tasks/R052B" target="_blank">original (uzbek) ↗</a>
+                <a href="https://robocontest.uz/tasks/R052B" target="_blank">solve ↗</a>
+            </div>
+        </header>
+
+        <div class="stmt">
+            <p>You are given an array \(a\) of length \(n\). The <em>beauty</em> of the array is the product of its elements. In one operation, you may increase the value of any element of the array. After at most \(k\) operations, find the largest achievable beauty, modulo \(10^9+7\).</p>
+
+            <h2>Input</h2>
+            <p>The first line contains two integers \(n\) and \(k\) (\(1 \le n, k \le 100\)).<br>
+            The next line contains \(n\) integers \(a_1, a_2, \dots, a_n\) (\(1 \le a_i \le 100\)).</p>
+
+            <h2>Output</h2>
+            <p>Print a single line — the answer to the problem modulo \(10^9+7\).</p>
+
+            <h2>Example</h2>
+            <div class="io">
+                <div>
+                    <span class="io-label">input</span>
+                    <pre>3 1
+2 5 2</pre>
+                </div>
+                <div>
+                    <span class="io-label">output</span>
+                    <pre>30</pre>
+                </div>
+            </div>
+
+            <h2>Note</h2>
+            <p>If we increase \(a_1\), the product becomes \(2 \times 5 \times 3 = 30\). It can be seen that no answer greater than 30 is achievable.</p>
+        </div>
+    </div>
+
+    <footer>
+        English translation · <span class="mono">dilshodbek.khujaev.com</span>
+    </footer>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var saved = localStorage.getItem('theme');
+            if (saved) {
+                root.dataset.theme = saved;
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                root.dataset.theme = 'dark';
+            }
+            document.getElementById('theme-toggle').addEventListener('click', function () {
+                var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+                root.dataset.theme = next;
+                localStorage.setItem('theme', next);
+            });
+        })();
+    </script>
+</body>
+</html>

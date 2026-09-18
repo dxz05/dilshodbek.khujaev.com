@@ -3,268 +3,1309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dilshodbek Khujaev - Computer Science Student</title>
+    <title>Dilshodbek Khujaev</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg: #f4f6fa;
+            --surface: #ffffff;
+            --surface-2: #eef1f7;
+            --text: #1b2333;
+            --muted: #5d6679;
+            --border: #e2e7f0;
+            --accent: #e0452f;
+            --accent-soft: #fdecea;
+            --amber: #d97706;
+            --gold: #b8860b;
+            --silver: #64748b;
+            --bronze: #a0622d;
+            --star-empty: #c9d2e0;
+            --shadow: 0 1px 3px rgba(16, 24, 40, 0.06), 0 8px 24px rgba(16, 24, 40, 0.06);
+            --nav-bg: rgba(244, 246, 250, 0.85);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0e1220;
+            --surface: #161b2d;
+            --surface-2: #1d2338;
+            --text: #e7eaf3;
+            --muted: #97a0b5;
+            --border: #293050;
+            --accent: #ff6b54;
+            --accent-soft: #3a2420;
+            --amber: #f5a623;
+            --gold: #e5b73e;
+            --silver: #a8b3c7;
+            --bronze: #d08a4e;
+            --star-empty: #3a4364;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
+            --nav-bg: rgba(14, 18, 32, 0.85);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
+            color: var(--text);
+            background-color: var(--bg);
+            background-image: radial-gradient(circle at 15% 0%, rgba(224, 69, 47, 0.06), transparent 35%),
+                              radial-gradient(circle at 85% 10%, rgba(217, 119, 6, 0.05), transparent 30%);
+            transition: background-color 0.3s, color 0.3s;
         }
-        
-        .container {
-            max-width: 900px;
+
+        .mono {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+        }
+
+        /* ---------- Nav ---------- */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--nav-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 960px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        
-        header {
-            text-align: center;
-            padding: 30px 0;
-            border-bottom: 2px solid #eee;
-        }
-        
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-        
-        .subtitle {
-            color: #7f8c8d;
-            font-size: 1.1em;
-            margin-bottom: 15px;
-        }
-        
-        .contact-info {
+            padding: 14px 24px;
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 15px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
         }
-        
-        .contact-info a {
-            color: #e74c3c;
+
+        .nav-name {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-weight: 700;
+            font-size: 0.95em;
+            color: var(--text);
             text-decoration: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            white-space: nowrap;
         }
-        
-        .contact-info a:hover {
-            background-color: #fee;
+
+        .nav-name span {
+            color: var(--accent);
         }
-        
-        section {
-            margin: 40px 0;
+
+        .nav-links {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: flex-end;
         }
-        
-        h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #e74c3c;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .education-item, .experience-item, .project-item {
-            margin-bottom: 30px;
-            padding-left: 20px;
-            border-left: 3px solid #e74c3c;
-        }
-        
-        .institution-name, .role-title, .project-title {
-            font-weight: bold;
-            font-size: 1.1em;
-            color: #2c3e50;
-        }
-        
-        .education-meta, .role-meta, .project-meta {
-            color: #666;
-            font-style: italic;
-            margin: 5px 0;
-        }
-        
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
-        }
-        
-        .achievement {
-            background-color: #fee;
-            padding: 15px;
-            border-radius: 5px;
-            border-left: 4px solid #c0392b;
-        }
-        
-        .achievement-highlight {
-            background-color: #ffe;
-            border-left-color: #f39c12;
-        }
-        
-        .skills-section {
-            background-color: #f8f9fa;
-            padding: 20px;
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.85em;
+            font-weight: 500;
+            padding: 6px 10px;
             border-radius: 8px;
+            transition: color 0.2s, background-color 0.2s;
         }
-        
-        .skill-category {
-            margin-bottom: 15px;
+
+        .nav-links a:hover {
+            color: var(--accent);
+            background-color: var(--accent-soft);
         }
-        
-        .skill-category strong {
-            color: #2c3e50;
+
+        #theme-toggle {
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text);
+            border-radius: 8px;
+            width: 34px;
+            height: 34px;
+            cursor: pointer;
+            font-size: 1em;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        #theme-toggle:hover {
+            border-color: var(--accent);
+            transform: rotate(15deg);
+        }
+
+        /* ---------- Layout ---------- */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px 60px;
+        }
+
+        section {
+            margin-top: 64px;
+            scroll-margin-top: 80px;
+        }
+
+        h2 {
+            font-size: 1.35em;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        h2::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--border), transparent);
+        }
+
+        .section-desc {
+            color: var(--muted);
+            margin: -12px 0 20px;
+            font-size: 0.95em;
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            padding: 72px 0 8px;
+        }
+
+        .hero-eyebrow {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            color: var(--accent);
+            font-size: 0.85em;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.4em, 6vw, 3.6em);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        .hero h1 .accent {
+            color: var(--accent);
+        }
+
+        .hero-sub {
+            font-size: 1.15em;
+            color: var(--muted);
+            margin-top: 14px;
+            max-width: 620px;
+        }
+
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 28px;
+        }
+
+        .stat {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 10px 16px;
+            font-size: 0.85em;
+            box-shadow: var(--shadow);
+        }
+
+        .stat strong {
+            display: block;
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 1.15em;
+            color: var(--accent);
+        }
+
+        .stat span {
+            color: var(--muted);
+        }
+
+        .hero-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            border: 1px solid var(--border);
+            color: var(--text);
+            background: var(--surface);
+            transition: transform 0.15s, border-color 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            color: #fff;
+            filter: brightness(1.08);
+        }
+
+        /* ---------- Cards ---------- */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        /* ---------- Education ---------- */
+        .edu-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .edu-head .title {
+            font-weight: 700;
+            font-size: 1.05em;
+        }
+
+        .edu-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .edu-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .date-chip {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 0.75em;
+            color: var(--muted);
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            padding: 3px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .edu-sub {
+            color: var(--muted);
+            margin-top: 4px;
+            font-size: 0.92em;
+        }
+
+        /* ---------- Timeline ---------- */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 7px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent), var(--border));
+            border-radius: 2px;
+        }
+
+        .t-item {
+            position: relative;
+            margin-bottom: 28px;
+        }
+
+        .t-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .t-item::before {
+            content: "";
+            position: absolute;
+            left: -28px;
+            top: 7px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 3px solid var(--accent);
+        }
+
+        .t-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .t-role {
+            font-weight: 700;
+            font-size: 1.02em;
+        }
+
+        .t-org {
+            color: var(--muted);
+            font-size: 0.9em;
+            margin-top: 2px;
+        }
+
+        .t-item ul {
+            margin-top: 10px;
+            list-style: none;
+        }
+
+        .t-item li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 8px;
+            color: var(--text);
+            font-size: 0.94em;
+        }
+
+        .t-item li::before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .t-item li strong {
+            color: var(--text);
+        }
+
+        /* ---------- Tasks ---------- */
+        .tasks-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .tasks-table th {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 0.68em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--muted);
+            text-align: left;
+            padding: 11px 16px;
+            background: var(--surface-2);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tasks-table th.num {
+            text-align: center;
+        }
+
+        .tasks-table td {
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: middle;
+            font-size: 0.9em;
+        }
+
+        .tasks-table td.num {
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .tasks-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .tasks-table tbody tr {
+            transition: background-color 0.15s;
+        }
+
+        .tasks-table tbody tr:hover {
+            background: var(--surface-2);
+        }
+
+        .task-name {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .task-lang {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 0.64em;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            color: var(--muted);
+            text-decoration: none;
+            margin-left: 8px;
+            white-space: nowrap;
+        }
+
+        .task-lang:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .tasks-table .meta {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 0.72em;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .task-solve {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 0.72em;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .task-solve:hover {
+            text-decoration: underline;
+        }
+
+        .task-none {
+            color: var(--muted);
+            opacity: 0.45;
+        }
+
+        #reveal-all {
+            margin-left: 10px;
+            background: none;
+            border: none;
+            padding: 0;
+            color: var(--accent);
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: 700;
+            letter-spacing: normal;
+            text-transform: none;
+            cursor: pointer;
+        }
+
+        #reveal-all:hover {
+            text-decoration: underline;
+        }
+
+        .spoiler {
+            border: 1px dashed var(--border);
+            background: var(--surface);
+            border-radius: 8px;
+            padding: 4px 9px;
+            cursor: pointer;
+            line-height: 1;
+            transition: border-color 0.2s;
+        }
+
+        .spoiler:hover:not(.revealed) {
+            border-color: var(--accent);
+        }
+
+        .spoiler.revealed {
+            border-style: solid;
+            border-color: var(--amber);
+        }
+
+        .spoiler .stars {
+            font-size: 0.85em;
+            letter-spacing: 1px;
+            transition: opacity 0.2s;
+        }
+
+        .spoiler i {
+            font-style: normal;
+            color: var(--star-empty);
+        }
+
+        .spoiler i.f {
+            color: var(--amber);
+        }
+
+        .spoiler i.h {
             display: inline-block;
-            margin-bottom: 5px;
+            background: linear-gradient(90deg, var(--amber) 50%, var(--star-empty) 50%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
         }
-        
-        ul {
-            list-style-position: inside;
-            margin-left: 20px;
+
+        /* Hidden state: every glyph looks identical — no color or shape leaks */
+        .spoiler:not(.revealed) i,
+        .spoiler:not(.revealed) i.f,
+        .spoiler:not(.revealed) i.h {
+            background: none;
+            color: var(--muted);
+            -webkit-text-fill-color: var(--muted);
+            opacity: 0.4;
         }
-        
-        li {
+
+        /* ---------- Awards ---------- */
+        .awards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 14px;
+        }
+
+        .award {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 18px;
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+
+        .award:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .award .a-title {
+            font-weight: 700;
+            font-size: 0.95em;
+        }
+
+        .award .a-sub {
+            color: var(--muted);
+            font-size: 0.82em;
+            margin-top: 4px;
+        }
+
+        .award.gold { border-left-color: var(--gold); }
+        .award.silver { border-left-color: var(--silver); }
+        .award.bronze { border-left-color: var(--bronze); }
+        .award.special { border-left-color: var(--accent); }
+
+        .award .a-badge {
+            display: inline-block;
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 0.68em;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            letter-spacing: 0.04em;
+        }
+
+        .award.gold .a-badge { background: rgba(184, 134, 11, 0.12); color: var(--gold); }
+        .award.silver .a-badge { background: rgba(100, 116, 139, 0.12); color: var(--silver); }
+        .award.bronze .a-badge { background: rgba(160, 98, 45, 0.12); color: var(--bronze); }
+        .award.special .a-badge { background: var(--accent-soft); color: var(--accent); }
+
+        /* ---------- Projects ---------- */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+        }
+
+        .project {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.15s, border-color 0.2s;
+        }
+
+        .project:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+        }
+
+        .project .p-title {
+            font-weight: 700;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .p-logo {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .project .p-meta {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 0.72em;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        .project .p-desc {
+            color: var(--muted);
+            font-size: 0.9em;
+            margin-top: 12px;
+            flex: 1;
+        }
+
+        .project .p-links {
+            margin-top: 16px;
+            display: flex;
+            gap: 14px;
+        }
+
+        .project .p-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .project .p-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---------- Skills ---------- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+        }
+
+        .skill-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px 20px;
+        }
+
+        .skill-card .s-label {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 0.72em;
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
             margin-bottom: 8px;
         }
-        
-        .highlight {
-            background-color: #ffe;
-            padding: 2px 4px;
-            border-radius: 3px;
+
+        .skill-card .s-body {
+            font-size: 0.92em;
+            color: var(--text);
         }
-        
-        @media (max-width: 600px) {
-            .container {
-                padding: 10px;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            .contact-info {
+
+        /* ---------- CP accounts ---------- */
+        .cp-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 14px;
+        }
+
+        .cp-link {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 20px;
+            text-decoration: none;
+            transition: border-color 0.15s, transform 0.15s;
+        }
+
+        .cp-link:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .cp-link .cp-site {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 0.72em;
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .cp-link .cp-handle {
+            font-size: 0.95em;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            margin-top: 80px;
+            padding: 28px 24px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.82em;
+        }
+
+        footer .footer-mail {
+            display: inline-block;
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 1em;
+            color: var(--text);
+            text-decoration: none;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 16px;
+            margin-bottom: 14px;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        footer .footer-mail:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* ---------- Reveal ---------- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+            html { scroll-behavior: auto; }
+        }
+
+        /* ---------- Mobile ---------- */
+        @media (max-width: 640px) {
+            .nav-inner {
                 flex-direction: column;
-                align-items: center;
+                gap: 8px;
+                padding: 10px 16px;
+            }
+
+            .hero {
+                padding-top: 48px;
+            }
+
+            section {
+                margin-top: 48px;
+            }
+
+            .tasks-table .meta {
+                display: none;
+            }
+
+            .tasks-table th,
+            .tasks-table td {
+                padding: 9px 10px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Dilshodbek Khujaev</h1>
-            <p class="subtitle">Computer Science Student & Competitive Programmer</p>
-            <p style="color: #666;">Carnegie Mellon University Qatar | Education City, Qatar</p>
-            <div class="contact-info">
-                <a href="mailto:dkhujaev@cmu.edu">Email</a>
-                <a href="https://linkedin.com/in/dilshodbek-khujaev" target="_blank">LinkedIn</a>
-                <a href="https://github.com/dxz05" target="_blank">GitHub</a>
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-name" href="#top">dilshodbek<span>.</span>khujaev<span>.</span>com</a>
+            <div class="nav-links">
+                <a href="#experience">Experience</a>
+                <a href="#awards">Awards</a>
+                <a href="#projects">Projects</a>
+                <a href="#tasks">Tasks</a>
+                <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" id="top">
+        <header class="hero">
+            <div class="hero-eyebrow">// competitive programmer · cs @ cmu-q</div>
+            <h1>Dilshodbek <span class="accent">Khujaev</span></h1>
+            <p class="hero-sub">Computer Science student at Carnegie Mellon University Qatar. IOI medalist, ICPC World Finals contestant, and problem setter &amp; judge for international olympiads and contests.</p>
+
+            <div class="stats">
+                <div class="stat"><strong>ICPC WF</strong><span>finalist · Baku 2025</span></div>
+                <div class="stat"><strong>IOI</strong><span>bronze · 2023</span></div>
+            </div>
+
+            <div class="hero-links">
+                <a class="btn" href="https://linkedin.com/in/dilshodbek-khujaev" target="_blank">LinkedIn ↗</a>
+                <a class="btn" href="https://github.com/dxz05" target="_blank">GitHub ↗</a>
             </div>
         </header>
 
-        <section>
+        <section id="education" class="reveal">
             <h2>Education</h2>
-            <div class="education-item">
-                <div class="institution-name">Carnegie Mellon University Qatar</div>
-                <div class="education-meta">Bachelor of Computer Science · August 2024 – May 2028 · Education City, Qatar</div>
-                <ul>
-                    <li><span class="highlight">QCPC 2024 Winner</span>: Claimed first place in the Qatar Collegiate Programming Contest 2024.</li>
-                    <li><span class="highlight">ACPC 2024 Bronze medalist</span>: Achieved a bronze medal in the Arab & African Collegiate Programming Championship.</li>
-                </ul>
+            <div class="card">
+                <div class="edu-head">
+                    <div class="edu-title">
+                        <img class="edu-logo" src="/dilshod/cmu-logo.png" alt="Carnegie Mellon University seal">
+                        <div class="title">Carnegie Mellon University Qatar</div>
+                    </div>
+                    <div class="date-chip">3rd year student</div>
+                </div>
+                <div class="edu-sub">B.S. Computer Science · Minor in Mathematical Sciences · Education City, Qatar</div>
             </div>
         </section>
 
-        <section>
+        <section id="experience" class="reveal">
             <h2>Experience</h2>
-            
-            <div class="experience-item">
-                <div class="role-title">Competitive Programming Expert</div>
-                <div class="role-meta">6+ Years of Experience</div>
-                <ul>
-                    <li>6+ years of experience on Codeforces (<strong>max rating 2258, top 1%</strong>), CodeChef, AtCoder, and LeetCode, solving <strong>3000+ problems</strong> that span dynamic programming, graph algorithms, network flow, and advanced data structures.</li>
-                    <li>Co-authored <strong>5 CodeChef contests</strong> and created <strong>30+ interview-style problems</strong> at WeCreateProblems (WeCP), emphasizing time/space optimization, algorithmic design, and best practices for high-level technical interviews.</li>
-                </ul>
-            </div>
+            <div class="timeline">
 
-            <div class="experience-item">
-                <div class="role-title">Coach & Team Leader</div>
-                <div class="role-meta">National Olympiads in Informatics · January 2024 – August 2024 · Tashkent, Uzbekistan</div>
-                <ul>
-                    <li>Mentored and trained top-performing students in advanced algorithms and data structures, leading to multiple national achievements and an IOI qualification.</li>
-                    <li>In collaboration with the Ministry of Digital Technologies, organized an educational camp for girls interested in IT, fostering diversity and inclusion in the field.</li>
-                    <li>Served as the Coach and Team Leader for Uzbekistan in the <strong>European Girls' Olympiad in Informatics (EGOI 2024)</strong>, where a student achieved a bronze medal.</li>
-                </ul>
-            </div>
+                <div class="t-item">
+                    <div class="t-head">
+                        <div class="t-role">Course Assistant</div>
+                    </div>
+                    <div class="t-org">Carnegie Mellon University Qatar · Education City, Qatar</div>
+                    <ul>
+                        <li><strong>15-150 Principles of Functional Programming (Fall 2026):</strong> office hours, interviews, mentoring, grading, and technical guidance on functional programming in SML/NJ.</li>
+                        <li><strong>15-122 Principles of Imperative Computation (Spring 2026):</strong> office hours, mentoring, grading, and technical guidance on C programming and fundamental data structures.</li>
+                    </ul>
+                </div>
 
-            <div class="experience-item">
-                <div class="role-title">Scientific Committee Member</div>
-                <div class="role-meta">National Olympiads in Informatics · September 2023 – August 2024 · Tashkent, Uzbekistan</div>
-                <ul>
-                    <li>Created more than <strong>40 IOI-styled competitive programming problems</strong> that include advanced algorithms and data structures, including graph theory, dynamic programming, and more.</li>
-                    <li>Each problem consisted of 3–9 smaller subproblems, each requiring additional preparation and a feedback system, allowing participants to earn partial credit. These problems were used in regional olympiads that served as selection rounds for international olympiads (IOI, EGOI, IZhO, etc.).</li>
-                    <li>Developed more than <strong>25 ICPC-styled problems</strong> for various regional olympiads for high school students, where the hardest problems played a crucial role in determining the winners.</li>
-                </ul>
+                <div class="t-item">
+                    <div class="t-head">
+                        <div class="t-role">SURA Researcher</div>
+                    </div>
+                    <div class="t-org">Carnegie Mellon University Qatar · Education City, Qatar</div>
+                    <ul>
+                        <li>Undergraduate research under <strong>Prof. Christos Kapoutsis</strong> comparing the recognition power and state complexity of finite automata, two-way finite automata, and 1-limited automata; synthesized research papers into a technical report with formal proofs and diagrams.</li>
+                    </ul>
+                </div>
+
+                <div class="t-item">
+                    <div class="t-head">
+                        <div class="t-role">Scientific Committee Member</div>
+                    </div>
+                    <div class="t-org">Olympiads in Informatics</div>
+                    <ul>
+                        <li><strong>Host Scientific Committee Member for IOI 2026</strong> — problem review, task development, solution validation, test data, and scientific preparation.</li>
+                        <li>Scientific Committee for <strong>APIO 2025</strong> — prepared tasks for an international olympiad with 900+ participants from 40 countries.</li>                    </ul>
+                </div>
+
+                <div class="t-item">
+                    <div class="t-head">
+                        <div class="t-role">Coach &amp; Team Leader</div>
+                    </div>
+                    <div class="t-org">Olympiads in Informatics · Tashkent, Uzbekistan</div>
+                    <ul>
+                        <li>Coach and Team Leader for Uzbekistan at <strong>EGOI 2024</strong> — a student earned a bronze medal.</li>
+                        <li>Organized an educational camp for girls in IT with the Ministry of Digital Technologies.</li>
+                        <li>Mentored top-performing students in advanced algorithms and data structures, leading to multiple national achievements and an IOI qualification.</li>
+                    </ul>
+                </div>
+
             </div>
         </section>
 
-        <section>
-            <h2>Awards & Achievements</h2>
-            <div class="achievements-grid">
-                <div class="achievement achievement-highlight">IOI (Bronze) – International Olympiad in Informatics, Hungary, 2023</div>
-                <div class="achievement achievement-highlight">ACPC (Bronze) – Arab & African Collegiate Programming Championship, Egypt, 2024</div>
-                <div class="achievement achievement-highlight">QCPC (Winner) – Qatar Collegiate Programming Contest, Qatar, 2024</div>
-                <div class="achievement">APIO (Bronze) – Asia Pacific Informatics Olympiad, China, 2023</div>
-                <div class="achievement">IZhO (Silver) – Int'l Zhautykov Olympiad in CS, Kazakhstan, 2022</div>
-                <div class="achievement">UzNOI (Winner) – Uzbekistan National Olympiad in Informatics, 2023</div>
-                <div class="achievement">Meta Hacker Cup (Round 3) – Top 300 Worldwide, 2023</div>
-                <div class="achievement">IT-Park Cup – Awarded $5,000 (U18 1st) and $3,500 (Team 2nd), 2020-2021</div>
+        <section id="awards" class="reveal">
+            <h2>Awards &amp; Achievements</h2>
+            <div class="awards">
+                <div class="award special">
+                    <div class="a-badge">WORLD FINALS</div>
+                    <div class="a-title">ICPC World Finals — Contestant</div>
+                    <div class="a-sub">International Collegiate Programming Contest · Baku, 2025</div>
+                </div>
+                <div class="award bronze">
+                    <div class="a-badge">BRONZE</div>
+                    <div class="a-title">IOI — International Olympiad in Informatics</div>
+                    <div class="a-sub">Szeged, Hungary · 2023</div>
+                </div>
+                <div class="award bronze">
+                    <div class="a-badge">BRONZE</div>
+                    <div class="a-title">ACPC — Arab &amp; African Collegiate PC</div>
+                    <div class="a-sub">Luxor, Egypt · 2024</div>
+                </div>
+                <div class="award gold">
+                    <div class="a-badge">WINNER</div>
+                    <div class="a-title">QCPC — Qatar Collegiate Programming Contest</div>
+                    <div class="a-sub">Education City, Qatar · 2024</div>
+                </div>
+                <div class="award bronze">
+                    <div class="a-badge">BRONZE</div>
+                    <div class="a-title">APIO — Asia-Pacific Informatics Olympiad</div>
+                    <div class="a-sub">2023</div>
+                </div>
+                <div class="award silver">
+                    <div class="a-badge">SILVER</div>
+                    <div class="a-title">IZhO — International Zhautykov Olympiad</div>
+                    <div class="a-sub">Almaty, Kazakhstan · 2022</div>
+                </div>
+                <div class="award gold">
+                    <div class="a-badge">WINNER</div>
+                    <div class="a-title">UzNOI — Uzbekistan National Olympiad</div>
+                    <div class="a-sub">Tashkent · 2023</div>
+                </div>
+                <div class="award special">
+                    <div class="a-badge">TOP 200</div>
+                    <div class="a-title">Meta Hacker Cup</div>
+                    <div class="a-sub">Top 200 worldwide · 2025 · Round 3 · 2023</div>
+                </div>
+                <div class="award">
+                    <div class="a-badge" style="background: var(--surface-2); color: var(--muted);">$8,500</div>
+                    <div class="a-title">IT-Park Cup</div>
+                    <div class="a-sub">$5,000 U18 1st · $3,500 Team 2nd · 2020–2021</div>
+                </div>
             </div>
         </section>
 
-        <section>
+        <section id="projects" class="reveal">
             <h2>Projects</h2>
-            
-            <div class="project-item">
-                <div class="project-title">Co-founder, CP-Uz Community</div>
-                <ul>
-                    <li>Launched a competitive programming hub in Uzbekistan with <strong>1,200+ members</strong>, offering algorithmic resources, workshops, and contests to elevate members' problem-solving skills.</li>
-                    <li>Provided mentorship programs and educational content that significantly improved participants' advanced programming and analytical capabilities.</li>
-                </ul>
-            </div>
-
-            <div class="project-item">
-                <div class="project-title">Hue 2D Game</div>
-                <div class="project-meta">Term Project · <a href="https://github.com/dxz05" target="_blank" style="color: #e74c3c;">GitHub</a></div>
-                <ul>
-                    <li>Developed a multi-level 2D color-based physics game in Python using the CMU Graphics Library, featuring custom collision detection, dynamic color-shifting puzzles, and optimized rendering.</li>
-                    <li>Built an object-oriented architecture for scalability, ensuring straightforward integration of new levels and features.</li>
-                </ul>
+            <div class="projects">
+                <div class="project">
+                    <div class="p-title"><img class="p-logo" src="/dilshod/cpuz-logo.jpg" alt="cp.uz logo"> CP.Uz — Competitive Programming Uzbekistan</div>
+                    <div class="p-meta">Co-founder · Nov 2023 – Present</div>
+                    <div class="p-desc">The largest Uzbek-language competitive programming platform — 160+ algorithms and data structures with an archive of Olympiad problems, free for the Uzbek programming community.</div>
+                    <div class="p-links">
+                        <a href="https://cp.uz" target="_blank">cp.uz ↗</a>
+                        <a href="https://github.com/dxz05" target="_blank">GitHub ↗</a>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="p-title">Skyline — LifeLines Hackathon Finalist</div>
+                    <div class="p-meta">Jan 2026</div>
+                    <div class="p-desc">AI-driven platform for sustainable post-disaster reconstruction — damage assessment, planning, material reuse, and transparent procurement workflows. Reached the hackathon finals.</div>
+                    <div class="p-links">
+                        <a href="https://github.com/dxz05" target="_blank">GitHub ↗</a>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="p-title">Hue — 2D Game</div>
+                    <div class="p-meta">Term Project · Python</div>
+                    <div class="p-desc">Multi-level color-based physics game built with the CMU Graphics Library — custom collision detection, dynamic color-shifting puzzles, and an object-oriented architecture for easy level extension.</div>
+                    <div class="p-links">
+                        <a href="https://github.com/dxz05" target="_blank">GitHub ↗</a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section>
-            <h2>Skills & Interests</h2>
-            <div class="skills-section">
-                <div class="skill-category">
-                    <strong>Programming Languages:</strong> C++ (14, 17, 20, 23), Python (3.x)
+        <section id="tasks" class="reveal">
+            <h2>Selected Tasks</h2>
+            <p class="section-desc">Selected problems I've authored for olympiads and contests. Click a rating to reveal its difficulty.</p>
+            <table class="tasks-table">
+                <thead>
+                    <tr>
+                        <th>Problem</th>
+                        <th class="meta">Source</th>
+                        <th class="num">Difficulty<button id="reveal-all" type="button" title="Toggle all difficulties">reveal all</button></th>
+                        <th class="num">Solve</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- To add a problem, copy this row:
+                    <tr>
+                        <td><span class="task-name">Problem name</span><a class="task-lang" href="ENG_LINK" target="_blank">[ENG]</a><a class="task-lang" href="UZB_LINK" target="_blank">[UZB]</a></td>
+                        <td class="meta">Contest</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i> = full, <i class="h">★</i> = half, <i>★</i> = empty</span></button></td>
+                        <td class="num"><a class="task-solve" href="SOLVE_LINK" target="_blank">solve ↗</a></td>
+                    </tr>
+                    -->
+                    <tr>
+                        <td><span class="task-name">Three-People Contests</span><a class="task-lang" href="https://www.codechef.com/problems/THREEPC" target="_blank">[ENG]</a></td>
+                        <td class="meta">CodeChef Starters 80</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i class="f">★</i><i class="f">★</i><i class="f">★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://www.codechef.com/problems/THREEPC" target="_blank">solve ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Soccer</span><a class="task-lang" href="https://codeforces.com/gym/105187/problem/B" target="_blank">[ENG]</a><a class="task-lang" href="https://cp.uz/tasks/2023-2024/ioi-2024-saralash-3/soccer" target="_blank">[UZB]</a></td>
+                        <td class="meta">National Selection to IOI 2024</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i class="f">★</i><i>★</i><i>★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://codeforces.com/gym/105187/problem/B" target="_blank">solve ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Permute-inator</span><a class="task-lang" href="https://codeforces.com/gym/105186/problem/B" target="_blank">[ENG]</a><a class="task-lang" href="https://cp.uz/tasks/2023-2024/ioi-2024-saralash-3/perm" target="_blank">[UZB]</a></td>
+                        <td class="meta">National Selection to IOI 2024</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i class="f">★</i><i class="h">★</i><i>★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://codeforces.com/gym/105186/problem/B" target="_blank">solve ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">TV Store</span><a class="task-lang" href="/dilshod/statements/tvstore.html">[ENG]</a><a class="task-lang" href="https://cp.uz/tasks/2024-2025/ioi-2025-saralash-2/tvstore" target="_blank">[UZB]</a></td>
+                        <td class="meta">National Selection to IOI 2025</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i class="f">★</i><i class="f">★</i><i>★</i></span></button></td>
+                        <td class="num"><span class="task-none">—</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">MEX-xe-xe</span><a class="task-lang" href="/dilshod/statements/mex-xe-xe.html">[ENG]</a><a class="task-lang" href="https://cp.uz/tasks/2023-2024/ioi-2024-saralash-2/mex-xe-xe" target="_blank">[UZB]</a></td>
+                        <td class="meta">National Olympiad</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i class="f">★</i><i class="f">★</i><i class="f">★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://robocontest.uz/contests/1282/tasks/E" target="_blank">solve ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Find an integer</span><a class="task-lang" href="https://www.codechef.com/problems/SUMDIV2" target="_blank">[ENG]</a></td>
+                        <td class="meta">CodeChef Starters 73</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="h">★</i><i>★</i><i>★</i><i>★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://www.codechef.com/problems/SUMDIV2" target="_blank">solve ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Candies</span><a class="task-lang" href="https://www.codechef.com/problems/CANDIES3" target="_blank">[ENG]</a></td>
+                        <td class="meta">CodeChef Starters 74</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i>★</i><i>★</i><i>★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://www.codechef.com/problems/CANDIES3" target="_blank">solve ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Two Averages</span><a class="task-lang" href="https://www.codechef.com/problems/TWOAVG" target="_blank">[ENG]</a></td>
+                        <td class="meta">CodeChef Starters 89</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i>★</i><i>★</i><i>★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://www.codechef.com/problems/TWOAVG" target="_blank">solve ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Milky-Dark Chocolates</span><a class="task-lang" href="https://www.codechef.com/problems/MILKYDARK" target="_blank">[ENG]</a></td>
+                        <td class="meta">CodeChef Starters 135</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i class="f">★</i><i class="h">★</i><i>★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://www.codechef.com/problems/MILKYDARK" target="_blank">solve ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Asilbek and the Strange Intervals</span><a class="task-lang" href="/dilshod/statements/m063e.html">[ENG]</a><a class="task-lang" href="https://robocontest.uz/tasks/M063E" target="_blank">[UZB]</a></td>
+                        <td class="meta">National Olympiad</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i class="f">★</i><i class="h">★</i><i>★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://robocontest.uz/tasks/M063E" target="_blank">solve ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Countries and Cities</span><a class="task-lang" href="/dilshod/statements/m062e.html">[ENG]</a><a class="task-lang" href="https://robocontest.uz/tasks/M062E" target="_blank">[UZB]</a></td>
+                        <td class="meta">National Olympiad</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i class="f">★</i><i>★</i><i>★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://robocontest.uz/tasks/M062E" target="_blank">solve ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Lipland</span><a class="task-lang" href="/dilshod/statements/r052d.html">[ENG]</a><a class="task-lang" href="https://robocontest.uz/tasks/R052D" target="_blank">[UZB]</a></td>
+                        <td class="meta">Robocontest Round 52</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i class="f">★</i><i class="f">★</i><i>★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://robocontest.uz/tasks/R052D" target="_blank">solve ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Wonderful Sequences</span><a class="task-lang" href="/dilshod/statements/r052c.html">[ENG]</a><a class="task-lang" href="https://robocontest.uz/tasks/R052C" target="_blank">[UZB]</a></td>
+                        <td class="meta">Robocontest Round 52</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i class="f">★</i><i class="f">★</i><i>★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://robocontest.uz/tasks/R052C" target="_blank">solve ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Product</span><a class="task-lang" href="/dilshod/statements/r052b.html">[ENG]</a><a class="task-lang" href="https://robocontest.uz/tasks/R052B" target="_blank">[UZB]</a></td>
+                        <td class="meta">Robocontest Round 52</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i>★</i><i>★</i><i>★</i><i>★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://robocontest.uz/tasks/R052B" target="_blank">solve ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">AND and AND</span><a class="task-lang" href="/dilshod/statements/r012a.html">[ENG]</a><a class="task-lang" href="https://robocontest.uz/tasks/R012A" target="_blank">[UZB]</a></td>
+                        <td class="meta">Robocontest Round 12</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i>★</i><i>★</i><i>★</i><i>★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://robocontest.uz/tasks/R012A" target="_blank">solve ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Diameter</span><a class="task-lang" href="/dilshod/statements/diameter.html">[ENG]</a><a class="task-lang" href="https://cp.uz/tasks/2024-2025/ioi-2025-saralash-2/diameter" target="_blank">[UZB]</a></td>
+                        <td class="meta">National Selection to IOI 2025</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i class="f">★</i><i class="f">★</i><i>★</i></span></button></td>
+                        <td class="num"><span class="task-none">—</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Meetings</span><a class="task-lang" href="https://codeforces.com/gym/105187/problem/A" target="_blank">[ENG]</a><a class="task-lang" href="https://cp.uz/tasks/2023-2024/ioi-2024-saralash-3/meet" target="_blank">[UZB]</a></td>
+                        <td class="meta">National Selection to IOI 2024</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i class="f">★</i><i class="f">★</i><i class="h">★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://codeforces.com/gym/105187/problem/A" target="_blank">solve ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Triangles</span><a class="task-lang" href="https://codeforces.com/gym/105187/problem/C" target="_blank">[ENG]</a><a class="task-lang" href="https://cp.uz/tasks/2023-2024/ioi-2024-saralash-3/tri" target="_blank">[UZB]</a></td>
+                        <td class="meta">National Selection to IOI 2024</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i class="f">★</i><i class="f">★</i><i>★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://codeforces.com/gym/105187/problem/C" target="_blank">solve ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Gnomes</span><a class="task-lang" href="/dilshod/statements/gnomes.html">[ENG]</a><a class="task-lang" href="https://cp.uz/tasks/2023-2024/ioi-2024-saralash-3/gnomes" target="_blank">[UZB]</a></td>
+                        <td class="meta">National Selection to IOI 2024</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i class="f">★</i><i class="h">★</i><i>★</i></span></button></td>
+                        <td class="num"><span class="task-none">—</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Elections</span><a class="task-lang" href="/dilshod/statements/elect.html">[ENG]</a><a class="task-lang" href="https://cp.uz/tasks/2023-2024/ioi-2024-saralash-3/elect" target="_blank">[UZB]</a></td>
+                        <td class="meta">National Selection to IOI 2024</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i class="f">★</i><i class="h">★</i><i>★</i></span></button></td>
+                        <td class="num"><span class="task-none">—</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Aliens</span><a class="task-lang" href="/dilshod/statements/aliens.html">[ENG]</a><a class="task-lang" href="https://cp.uz/tasks/2023-2024/ioi-2024-saralash-2/aliens" target="_blank">[UZB]</a></td>
+                        <td class="meta">National Olympiad</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i>★</i><i>★</i><i>★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://robocontest.uz/contests/1282/tasks/C" target="_blank">solve ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Thanos sort</span><a class="task-lang" href="/dilshod/statements/thanos-sort.html">[ENG]</a><a class="task-lang" href="https://cp.uz/tasks/2023-2024/ioi-2024-saralash-2/thanos-sort" target="_blank">[UZB]</a></td>
+                        <td class="meta">National Olympiad</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i class="f">★</i><i>★</i><i>★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://robocontest.uz/contests/1283/tasks/D" target="_blank">solve ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Cards</span><a class="task-lang" href="/dilshod/statements/cards.html">[ENG]</a><a class="task-lang" href="https://cp.uz/tasks/2023-2024/ioi-2024-saralash-2/cards" target="_blank">[UZB]</a></td>
+                        <td class="meta">National Olympiad</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i class="h">★</i><i>★</i><i>★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://robocontest.uz/contests/1283/tasks/C" target="_blank">solve ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Extensions</span><a class="task-lang" href="/dilshod/statements/extensions.html">[ENG]</a><a class="task-lang" href="https://cp.uz/tasks/2023-2024/ioi-2024-saralash-2/extensions" target="_blank">[UZB]</a></td>
+                        <td class="meta">National Olympiad</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="h">★</i><i>★</i><i>★</i><i>★</i><i>★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://robocontest.uz/contests/1282/tasks/A" target="_blank">solve ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="task-name">Two Trees</span><a class="task-lang" href="/dilshod/statements/two-trees.html">[ENG]</a><a class="task-lang" href="https://cp.uz/tasks/2023-2024/ioi-2024-saralash-2/two-trees" target="_blank">[UZB]</a></td>
+                        <td class="meta">National Olympiad</td>
+                        <td class="num"><button class="spoiler" type="button" title="Difficulty — click to reveal"><span class="stars"><i class="f">★</i><i class="f">★</i><i class="f">★</i><i class="f">★</i><i>★</i></span></button></td>
+                        <td class="num"><a class="task-solve" href="https://robocontest.uz/contests/1283/tasks/E" target="_blank">solve ↗</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="skills" class="reveal">
+            <h2>Skills &amp; Interests</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="s-label">Languages</div>
+                    <div class="s-body">C++ (14 / 17 / 20 / 23) · Python 3 · C · SML/NJ</div>
                 </div>
-                <div class="skill-category">
-                    <strong>Spoken Languages:</strong> Uzbek (native), English (C1), Russian (C1)
+                <div class="skill-card">
+                    <div class="s-label">Competitive Programming</div>
+                    <div class="s-body">Codeforces max 2258 (top 1%) · 3000+ problems across Codeforces, CodeChef, AtCoder, LeetCode</div>
                 </div>
-                <div class="skill-category">
-                    <strong>Interests:</strong> Table tennis, squash, board games
+                <div class="skill-card">
+                    <div class="s-label">Spoken</div>
+                    <div class="s-body">Uzbek (native) · English (C1) · Russian (C1)</div>
                 </div>
+                <div class="skill-card">
+                    <div class="s-label">Off the keyboard</div>
+                    <div class="s-body">Table tennis · squash · board games</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="accounts" class="reveal">
+            <h2>Accounts on various platforms</h2>
+            <div class="cp-links">
+                <a class="cp-link" href="https://codeforces.com/profile/DilshodbekX" target="_blank">
+                    <span class="cp-site">Codeforces</span>
+                    <span class="cp-handle">DilshodbekX ↗</span>
+                </a>
+                <a class="cp-link" href="https://atcoder.jp/users/dxz05" target="_blank">
+                    <span class="cp-site">AtCoder</span>
+                    <span class="cp-handle">dxz05 ↗</span>
+                </a>
+                <a class="cp-link" href="https://cphof.org/profile/codeforces:DilshodbekX" target="_blank">
+                    <span class="cp-site">CP Hall of Fame</span>
+                    <span class="cp-handle">DilshodbekX ↗</span>
+                </a>
+                <a class="cp-link" href="https://clist.by/coder/Dilshodbek" target="_blank">
+                    <span class="cp-site">Clist</span>
+                    <span class="cp-handle">Dilshodbek ↗</span>
+                </a>
             </div>
         </section>
     </div>
+
+    <footer>
+        <a class="footer-mail" id="email-btn" href="#" data-u="dkhujaev" data-d="cmu.edu">email</a>
+        <div><span class="mono">dilshodbek.khujaev.com</span> · © 2026 Dilshodbek Khujaev</div>
+    </footer>
+
+    <script>
+        // Theme toggle (respects saved choice, then OS preference)
+        (function () {
+            var root = document.documentElement;
+            var saved = localStorage.getItem('theme');
+            if (saved) {
+                root.dataset.theme = saved;
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                root.dataset.theme = 'dark';
+            }
+            document.getElementById('theme-toggle').addEventListener('click', function () {
+                var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+                root.dataset.theme = next;
+                localStorage.setItem('theme', next);
+            });
+        })();
+
+        // Reveal sections on scroll
+        (function () {
+            if (!('IntersectionObserver' in window)) {
+                document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visible'); });
+                return;
+            }
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('visible');
+                        io.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.08 });
+            document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+        })();
+
+        // Email assembled at runtime so the raw address isn't in the markup
+        (function () {
+            var b = document.getElementById('email-btn');
+            var a = b.dataset.u + '@' + b.dataset.d;
+            b.textContent = a;
+            b.href = 'mailto:' + a;
+        })();
+
+        // Spoiler chips — click to reveal task difficulty
+        document.querySelectorAll('.spoiler').forEach(function (el) {
+            el.addEventListener('click', function () {
+                el.classList.toggle('revealed');
+            });
+        });
+
+        // Reveal-all toggle in the Difficulty column header
+        (function () {
+            var btn = document.getElementById('reveal-all');
+            btn.addEventListener('click', function () {
+                var chips = document.querySelectorAll('.spoiler');
+                var allShown = Array.prototype.every.call(chips, function (c) {
+                    return c.classList.contains('revealed');
+                });
+                chips.forEach(function (c) { c.classList.toggle('revealed', !allShown); });
+                btn.textContent = allShown ? 'reveal all' : 'hide all';
+            });
+        })();
+    </script>
 </body>
 </html>

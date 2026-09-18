@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elections — English statement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}]});"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-name" href="../index.html">dilshod<span>@</span>khujaev<span>.com</span></a>
+            <div class="nav-links">
+                <a href="../index.html#tasks">← Tasks authored</a>
+                <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="prob-head">
+            <h1>Elections</h1>
+            <div class="prob-meta">
+                <span class="chip">National Selection to IOI 2024 · day 1</span>
+                <a href="https://cp.uz/tasks/2023-2024/ioi-2024-saralash-3/elect" target="_blank">original (uzbek) ↗</a>
+            </div>
+        </header>
+
+        <div class="stmt">
+            <p>Soon, parliamentary elections will be held in the country of Dadorlandtiria. There are \(n\) voters in total, numbered from \(0\) to \(n-1\). There are also \(k\) candidates, numbered from \(0\) to \(k-1\). Note that the candidates themselves do not vote in the election — there are \(n+k\) people in total.</p>
+            <p>Komiljon, who has long dreamed of becoming a deputy, has put forward his candidacy. Komiljon's number is \(0\).</p>
+            <p>According to pre-election data, voter \(i\) intends to vote for candidate \(p[i]\). However, Komiljon can persuade voter \(i\) to vote for him in exchange for \(c[i]\) dador dollars.</p>
+            <p>To win the election, Komiljon must collect <strong>strictly more</strong> votes than every other candidate. What is the minimum amount Komiljon must spend to achieve this?</p>
+
+            <h2>Implementation details</h2>
+            <p>You should implement the following procedure:</p>
+            <pre>int64 min_cost(int n, int k, int[] p, int[] c)</pre>
+            <ul>
+                <li>\(n\): the total number of voters.</li>
+                <li>\(k\): the total number of candidates.</li>
+                <li>\(p\): an array of length \(n\) — whom each voter intends to vote for.</li>
+                <li>\(c\): an array of length \(n\) — the price of buying each voter.</li>
+                <li>The procedure should return the minimum amount of money needed to win the election.</li>
+                <li>This procedure is called exactly once.</li>
+            </ul>
+
+            <h2>Examples</h2>
+            <p>Consider the following call:</p>
+            <pre>min_cost(7, 3, [1, 2, 0, 2, 2, 1, 1], [3, 4, 9, 9, 8, 1, 2])</pre>
+            <p>So \(n=7\), \(k=3\), \(p = [1, 2, 0, 2, 2, 1, 1]\) and \(c = [3, 4, 9, 9, 8, 1, 2]\).</p>
+            <p>Komiljon can come to an agreement with voters \(1\) and \(5\). Then he spends \(c[1] + c[5] = 4 + 1 = 5\) dador dollars. Komiljon then receives \(3\) votes, while the other candidates receive \(2\) each.</p>
+            <p>Consider another example:</p>
+            <pre>min_cost(3, 2, [0, 1, 0], [9, 9, 9])</pre>
+            <p>It can be seen that Komiljon has \(2\) votes while his opponent has \(1\). So there is no need to spend money. The procedure should return \(0\).</p>
+
+            <h2>Constraints</h2>
+            <ul>
+                <li>\(2 \le n \le 200\,000\)</li>
+                <li>\(2 \le k \le n\)</li>
+                <li>\(0 \le p[i] \le k-1\) (for all \(0 \le i \le n - 1\))</li>
+                <li>\(1 \le c[i] \le 10^9\) (for all \(0 \le i \le n - 1\))</li>
+            </ul>
+
+            <h2>Subtasks</h2>
+            <ol>
+                <li>(8 points) \(n \le 18\)</li>
+                <li>(12 points) \(n \le 200\)</li>
+                <li>(22 points) \(n \le 2000\)</li>
+                <li>(6 points) \(k = 2\)</li>
+                <li>(10 points) \(k = 3\)</li>
+                <li>(15 points) \(c[i] = 1\)</li>
+                <li>(27 points) No additional constraints.</li>
+            </ol>
+
+            <h2>Sample grader</h2>
+            <p>Feed the sample grader the input in the following format:</p>
+            <ul>
+                <li>line \(1\): \(n \; k\)</li>
+                <li>line \(2\): \(p[0] \; p[1] \; \ldots \; p[n - 1]\)</li>
+                <li>line \(3\): \(c[0] \; c[1] \; \ldots \; c[n - 1]\)</li>
+            </ul>
+            <p>The sample grader prints the answer in the following format:</p>
+            <ul>
+                <li>line \(1\): the answer returned by the <code>min_cost</code> procedure.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        English translation · <span class="mono">dilshodbek.khujaev.com</span>
+    </footer>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var saved = localStorage.getItem('theme');
+            if (saved) {
+                root.dataset.theme = saved;
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                root.dataset.theme = 'dark';
+            }
+            document.getElementById('theme-toggle').addEventListener('click', function () {
+                var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+                root.dataset.theme = next;
+                localStorage.setItem('theme', next);
+            });
+        })();
+    </script>
+</body>
+</html>

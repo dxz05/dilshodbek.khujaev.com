@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aliens — English statement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}]});"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-name" href="../index.html">dilshod<span>@</span>khujaev<span>.com</span></a>
+            <div class="nav-links">
+                <a href="../index.html#tasks">← Tasks authored</a>
+                <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="prob-head">
+            <h1>Aliens</h1>
+            <div class="prob-meta">
+                <span class="chip">National Olympiad · National Selection to IOI 2024</span>
+                <a href="https://cp.uz/tasks/2023-2024/ioi-2024-saralash-2/aliens" target="_blank">original (uzbek) ↗</a>
+                <a href="https://robocontest.uz/contests/1282/tasks/C" target="_blank">solve ↗</a>
+            </div>
+        </header>
+
+        <div class="stmt">
+            <p>Gulnoza has a garden of size \(N \times M\). If \(a[i][j]\) = "T", there is a tree in cell \((i, j)\); otherwise the cell is empty.</p>
+            <p>Gulnoza's brother Yahyo is very interested in space and wants to send a message to aliens in the shape of a rhombus. For this, he can place stones in several cells of the garden. The stones must form a rhombus when viewed from above. However, Yahyo does not want to harm the trees (Protect the trees!).</p>
+            <p>The bigger the message, the higher the probability the aliens will receive it. Create a rhombus by placing as many stones as possible!</p>
+
+            <h2>Input</h2>
+            <p>The first line contains \(N\) and \(M\) — the dimensions of Gulnoza's garden.<br>
+            The next \(N\) lines each contain \(M\) characters, where "T" denotes a tree and "." denotes an empty cell.</p>
+
+            <h2>Output</h2>
+            <p>Print a single line — the maximum number of stones that can be used.</p>
+
+            <h2>Example</h2>
+            <p>For example, let \(N = 7\) and \(M = 6\). There are \(7\) trees in the field, and \(13\) stones can be placed in a rhombus shape without harming them.</p>
+            <div class="io">
+                <div>
+                    <span class="io-label">input</span>
+                    <pre>7 6
+.T...T
+..T...
+T....T
+......
+T.....
+......
+...T..</pre>
+                </div>
+                <div>
+                    <span class="io-label">output</span>
+                    <pre>13</pre>
+                </div>
+            </div>
+
+            <h2>Constraints</h2>
+            <ul>
+                <li>\(3 \le N, M \le 5000\)</li>
+                <li>\(a[i][j]\) is "T" or ".", for all \(1 \le i \le N\) and \(1 \le j \le M\)</li>
+                <li>It is guaranteed that at least one cell is empty.</li>
+            </ul>
+
+            <h2>Subtasks</h2>
+            <ol>
+                <li>(10 points) \(N = M = 3\)</li>
+                <li>(11 points) \(N, M \le 30\)</li>
+                <li>(12 points) \(N, M \le 100\)</li>
+                <li>(13 points) \(N, M \le 400\)</li>
+                <li>(17 points) \(N, M \le 1000\) and there are at most \(10\) trees</li>
+                <li>(14 points) \(N, M \le 1000\)</li>
+                <li>(23 points) No additional constraints.</li>
+            </ol>
+        </div>
+    </div>
+
+    <footer>
+        English translation · <span class="mono">dilshodbek.khujaev.com</span>
+    </footer>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var saved = localStorage.getItem('theme');
+            if (saved) {
+                root.dataset.theme = saved;
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                root.dataset.theme = 'dark';
+            }
+            document.getElementById('theme-toggle').addEventListener('click', function () {
+                var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+                root.dataset.theme = next;
+                localStorage.setItem('theme', next);
+            });
+        })();
+    </script>
+</body>
+</html>

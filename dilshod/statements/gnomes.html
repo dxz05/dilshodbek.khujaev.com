@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gnomes — English statement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}]});"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-name" href="../index.html">dilshod<span>@</span>khujaev<span>.com</span></a>
+            <div class="nav-links">
+                <a href="../index.html#tasks">← Tasks authored</a>
+                <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="prob-head">
+            <h1>Gnomes</h1>
+            <div class="prob-meta">
+                <span class="chip">National Selection to IOI 2024 · day 1</span>
+                <a href="https://cp.uz/tasks/2023-2024/ioi-2024-saralash-3/gnomes" target="_blank">original (uzbek) ↗</a>
+            </div>
+        </header>
+
+        <div class="stmt">
+            <p>The country of Dadorlandtiria has \(n\) gnomes, numbered from \(0\) to \(n-1\). One day the evil Dr. Dilyor kidnapped the gnomes, brought them to Dr. Dilyor Evil Inc., and gave them a difficult assignment.</p>
+            <p>The gnomes stand in a circle. Dr. Dilyor comes and puts a colored hat on each gnome's head. The hat color can be any number from \(0\) to \(k-1\). No gnome can see the color of the hat on their own head, but they can see the hat colors of the other \(n-1\) gnomes.</p>
+            <p>After everyone has been given a hat, all gnomes simultaneously say an integer between \(0\) and \(h-1\) (they do not all have to say the same number). Afterwards, all gnomes must say the color of their own hat.</p>
+            <p>Before Dr. Dilyor starts putting on the hats, the gnomes may confer among themselves and devise a plan. Once the hat-placing has started, no planning is possible.</p>
+            <p>If all gnomes correctly name the color of their hat, Dr. Dilyor releases them. If anyone makes a mistake, all of them remain in prison forever. Help the gnomes.</p>
+
+            <h2>Implementation details</h2>
+            <p>You should implement the following procedures:</p>
+            <pre>void init(int n, int k, int h)</pre>
+            <ul>
+                <li>\(n\): the total number of gnomes.</li>
+                <li>\(k\): the total number of hat colors.</li>
+                <li>\(h\): the maximum number a gnome may say.</li>
+                <li>The procedure returns nothing.</li>
+            </ul>
+            <pre>int say_number(int id, int[] a)</pre>
+            <ul>
+                <li>\(id\): the gnome's number.</li>
+                <li>\(a\): an array of length \(n-1\) — the hat colors of all gnomes except gnome \(id\).</li>
+                <li>The procedure should return the number that gnome \(id\) should say.</li>
+            </ul>
+            <pre>int answer(int id, int[] a, int[] c)</pre>
+            <ul>
+                <li>\(id\): the gnome's number.</li>
+                <li>\(a\): an array of length \(n-1\) — the hat colors of all gnomes except gnome \(id\).</li>
+                <li>\(c\): an array of length \(n\), where \(c[i]\) is the number said by gnome \(i\).</li>
+                <li>The procedure should return the hat color of gnome \(id\).</li>
+            </ul>
+            <p>Each test contains several independent scenarios. If a test has \(t\) scenarios, the above programs are used three times in the following way:</p>
+            <p>In the first part, the <code>init</code> procedure is called once (\(n\), \(k\) and \(h\) are the same in all scenarios). Then the <code>say_number</code> procedure is called exactly \(t \cdot n\) times (\(n\) times for each scenario, i.e. once per gnome). The returned results are stored in the system.</p>
+            <p>The second program is restarted. The <code>init</code> procedure is called once. Then the <code>answer</code> procedure is called exactly \(t \cdot n\) times. <strong>In each call, an arbitrary scenario may be chosen.</strong></p>
+            <p>In general, when the code is restarted all variables are cleared — <strong>data stored in static or global variables after the first part cannot be used in the second part.</strong></p>
+
+            <h2>Example</h2>
+            <p>Suppose \(n = 5\), \(k = 12\) and \(h = 100\). Let the gnomes' hat numbers be \(p = [4, 11, 7, 0, 2]\). Then the following sequence of calls occurs:</p>
+            <pre>init(5, 12, 100)</pre>
+            <p>This call tells you the values of \(n\) and \(k\).</p>
+            <p>Then suppose the following calls are made:</p>
+            <pre>say_number(0, [11, 7, 0, 2])
+say_number(1, [4, 7, 0, 2])
+say_number(2, [4, 11, 0, 2])
+say_number(3, [4, 11, 7, 2])
+say_number(4, [4, 11, 7, 0])</pre>
+            <p>Suppose these calls return the numbers \(6\), \(2\), \(7\), \(5\) and \(10\) respectively.</p>
+            <p>Then the following calls are made (in any order):</p>
+            <pre>answer(0, [11, 7, 0, 2], [6, 2, 7, 5, 10])
+answer(1, [4, 7, 0, 2],  [6, 2, 7, 5, 10])
+answer(2, [4, 11, 0, 2], [6, 2, 7, 5, 10])
+answer(3, [4, 11, 7, 2], [6, 2, 7, 5, 10])
+answer(4, [4, 11, 7, 0], [6, 2, 7, 5, 10])</pre>
+            <p>The <code>answer</code> procedures should return \(4\), \(11\), \(7\), \(0\), \(2\) respectively.</p>
+
+            <h2>Constraints</h2>
+            <ul>
+                <li>\(1 \le t \le 100\)</li>
+                <li>\(2 \le n \le 20\)</li>
+                <li>\(2 \le k \le 500\,000\)</li>
+                <li>\(2 \le h \le 500\,000\)</li>
+                <li>\(0 \le p[i] \le k - 1\), for all \(0 \le i \le n - 1\)</li>
+            </ul>
+
+            <h2>Subtasks</h2>
+            <ol>
+                <li>(5 points) \(n = k = h\), all \(p[i]\) values are distinct.</li>
+                <li>(5 points) \(k = h\).</li>
+                <li>(20 points) \(h = 20\) and for every hat there is another hat of the same color.</li>
+                <li>(70 points) \(n = 20\), \(k = 500\,000\), \(h = 10\).</li>
+            </ol>
+            <p>Additionally, partial score is available in subtask 4. Let \(m\) be the maximum among the numbers returned by the <code>say_number</code> function across all tests. Then you score:</p>
+            <table>
+                <tr><th>Condition</th><th>Points</th></tr>
+                <tr><td>\(10 \le m\)</td><td>\(0\)</td></tr>
+                <tr><td>\(5 \le m < 10\)</td><td>\(15\)</td></tr>
+                <tr><td>\(2 \le m < 5\)</td><td>\(60 - 10 \cdot m\)</td></tr>
+                <tr><td>\(m < 2\)</td><td>\(70\)</td></tr>
+            </table>
+
+            <h2>Sample grader</h2>
+            <p>Feed the sample grader the input in the following format:</p>
+            <ul>
+                <li>line 1: \(n \; k \; h \; t\)</li>
+            </ul>
+            <p>For each of the next \(t\) scenarios, provide:</p>
+            <ul>
+                <li>\(p[0] \; p[1] \; \ldots \; p[n - 1]\)</li>
+            </ul>
+            <p>Then the sample grader prints the answers in the following format:</p>
+            <ul>
+                <li>line 1: \(m\)</li>
+            </ul>
+            <p>In the next \(t\) lines, the answer for each scenario (\(r\) — the returned array):</p>
+            <ul>
+                <li>\(r[0] \; r[1] \; \ldots \; r[n - 1]\)</li>
+            </ul>
+            <p>Additionally, the calls made to the <code>init</code>, <code>say_number</code>, <code>answer</code> procedures and their results are written by the grader to <code>log.txt</code>.</p>
+        </div>
+    </div>
+
+    <footer>
+        English translation · <span class="mono">dilshodbek.khujaev.com</span>
+    </footer>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var saved = localStorage.getItem('theme');
+            if (saved) {
+                root.dataset.theme = saved;
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                root.dataset.theme = 'dark';
+            }
+            document.getElementById('theme-toggle').addEventListener('click', function () {
+                var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+                root.dataset.theme = next;
+                localStorage.setItem('theme', next);
+            });
+        })();
+    </script>
+</body>
+</html>

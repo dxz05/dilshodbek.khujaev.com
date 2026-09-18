@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Trees — English statement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}]});"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-name" href="../index.html">dilshod<span>@</span>khujaev<span>.com</span></a>
+            <div class="nav-links">
+                <a href="../index.html#tasks">← Tasks authored</a>
+                <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="prob-head">
+            <h1>Two Trees</h1>
+            <div class="prob-meta">
+                <span class="chip">National Olympiad · National Selection to IOI 2024</span>
+                <a href="https://cp.uz/tasks/2023-2024/ioi-2024-saralash-2/two-trees" target="_blank">original (uzbek) ↗</a>
+                <a href="https://robocontest.uz/contests/1283/tasks/E" target="_blank">solve ↗</a>
+            </div>
+        </header>
+
+        <div class="stmt">
+            <p>A <em>tree</em> is a connected undirected acyclic graph.</p>
+            <p>You are given two rooted trees, each with \(N\) vertices. The root of the first tree is \(r_1\), and the root of the second tree is vertex \(r_2\).</p>
+            <p>Let \(S_1(v)\) denote the set of vertices \(u\) such that the path from \(r_1\) to \(u\) in the first tree passes through vertex \(v\). Similarly, let \(S_2(v)\) denote the set of vertices \(u\) such that the path from \(r_2\) to \(u\) in the second tree passes through vertex \(v\).</p>
+            <p>You are asked to find the sizes of the intersections \(S_1(v) \cap S_2(v)\) for all vertices \(1 \le v \le N\).</p>
+
+            <h2>Input</h2>
+            <p>The first line contains the integers \(N\), \(r_1\) and \(r_2\) — the number of vertices and the roots of the trees.</p>
+            <p>The second line contains the integers \(p_1[1], p_1[2], \dots, p_1[N]\). For every \(1 \le i \le N\) with \(i \neq r_1\), there is an edge between vertices \(i\) and \(p_1[i]\) in the first tree.</p>
+            <p>The third line contains the integers \(p_2[1], p_2[2], \dots, p_2[N]\). For every \(1 \le i \le N\) with \(i \neq r_2\), there is an edge between vertices \(i\) and \(p_2[i]\) in the second tree.</p>
+            <p>Note that the values of the elements \(p_1[r_1]\) and \(p_2[r_2]\) equal \(-1\).</p>
+
+            <h2>Output</h2>
+            <p>Print a single line with \(N\) numbers — the answer for each \(v\).</p>
+
+            <h2>Example</h2>
+            <p>For example, let \(N = 5\), \(r_1 = 3\), \(r_2 = 1\), and \(p_1 = [3, 3, -1, 1, 2]\), \(p_2 = [-1, 1, 2, 3, 3]\). Then the trees look like this:</p>
+            <ul>
+                <li>\(S_1(1) = \{1, 4\}\) and \(S_2(1) = \{1, 2, 3, 4, 5\}\). Their intersection is \(\{1, 4\}\).</li>
+                <li>\(S_1(2) = \{2, 5\}\) and \(S_2(2) = \{2, 3, 4, 5\}\). Their intersection is \(\{2, 5\}\).</li>
+                <li>\(S_1(3) = \{1, 2, 3, 4, 5\}\) and \(S_2(3) = \{3, 4, 5\}\). Their intersection is \(\{3, 4, 5\}\).</li>
+                <li>\(S_1(4) = \{4\}\) and \(S_2(4) = \{4\}\). Their intersection is \(\{4\}\).</li>
+                <li>\(S_1(5) = \{5\}\) and \(S_2(5) = \{5\}\). Their intersection is \(\{5\}\).</li>
+            </ul>
+            <div class="io">
+                <div>
+                    <span class="io-label">input</span>
+                    <pre>5 3 1
+3 3 -1 1 2
+-1 1 2 3 3</pre>
+                </div>
+                <div>
+                    <span class="io-label">output</span>
+                    <pre>2 2 3 1 1</pre>
+                </div>
+            </div>
+
+            <h2>Constraints</h2>
+            <ul>
+                <li>\(2 \le N \le 3 \cdot 10^5\)</li>
+                <li>\(1 \le r_1, r_2 \le N\)</li>
+                <li>\(1 \le p_1[i] \le N\), for all \(1 \le i \le N\) with \(i \neq r_1\)</li>
+                <li>\(1 \le p_2[i] \le N\), for all \(1 \le i \le N\) with \(i \neq r_2\)</li>
+                <li>\(p_1[r_1] = -1\) and \(p_2[r_2] = -1\). It is guaranteed that the arrays \(p_1\) and \(p_2\) form trees.</li>
+            </ul>
+
+            <h2>Subtasks</h2>
+            <p>Let \(c(v)\) be the number of indices \(i\) for which \(p[i] = v\). A <em>binary tree</em> is a tree where \(c(v) = 0\) or \(c(v) = 2\) for all \(1 \le v \le N\). A <em>path tree</em> is a tree where \(c(v) \le 1\) for all \(1 \le v \le N\).</p>
+            <ol>
+                <li>(11 points) The trees are identical, i.e. \(r_1 = r_2\) and \(p_1 = p_2\)</li>
+                <li>(12 points) \(N \le 3000\)</li>
+                <li>(13 points) Both trees are binary.</li>
+                <li>(17 points) Both trees are paths.</li>
+                <li>(21 points) The first tree is a path.</li>
+                <li>(26 points) No additional constraints.</li>
+            </ol>
+        </div>
+    </div>
+
+    <footer>
+        English translation · <span class="mono">dilshodbek.khujaev.com</span>
+    </footer>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var saved = localStorage.getItem('theme');
+            if (saved) {
+                root.dataset.theme = saved;
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                root.dataset.theme = 'dark';
+            }
+            document.getElementById('theme-toggle').addEventListener('click', function () {
+                var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+                root.dataset.theme = next;
+                localStorage.setItem('theme', next);
+            });
+        })();
+    </script>
+</body>
+</html>

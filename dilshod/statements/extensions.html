@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extensions — English statement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}]});"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-name" href="../index.html">dilshod<span>@</span>khujaev<span>.com</span></a>
+            <div class="nav-links">
+                <a href="../index.html#tasks">← Tasks authored</a>
+                <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="prob-head">
+            <h1>Extensions</h1>
+            <div class="prob-meta">
+                <span class="chip">National Olympiad · National Selection to IOI 2024</span>
+                <a href="https://cp.uz/tasks/2023-2024/ioi-2024-saralash-2/extensions" target="_blank">original (uzbek) ↗</a>
+                <a href="https://robocontest.uz/contests/1282/tasks/A" target="_blank">solve ↗</a>
+            </div>
+        </header>
+
+        <div class="stmt">
+            <p>Last school year Nodir participated in \(N\) olympiads and won one extension cord (power strip) in each of them. The \(i\)-th extension cord has \(a[i]\) sockets.</p>
+            <p>Nodir also has an unlimited number of phones. Charging each phone requires one socket, but Nodir's home has only a single power source (wall outlet).</p>
+            <p>Connect the extension cords to each other in such a way that the number of power sources is maximized and as many phones as possible can be charged.</p>
+            <p><img src="extensions_task.png" alt="Extension cords chained to charge phones"></p>
+
+            <h2>Input</h2>
+            <p>The first line contains the number \(N\) — the total number of extension cords.<br>
+            The second line contains \(a[1], a[2], \dots, a[N]\) — the number of sockets on each extension cord.</p>
+
+            <h2>Output</h2>
+            <p>Print a single line — the maximum number of phones that can be charged.</p>
+
+            <h2>Example</h2>
+            <p>For example, let \(N = 3\) and \(a = [3, 3, 4]\).</p>
+            <p>If Nodir connects the extension cords in the order \([3, 4, 3]\), he can charge \(8\) phones.</p>
+            <div class="io">
+                <div>
+                    <span class="io-label">input</span>
+                    <pre>3
+3 3 4</pre>
+                </div>
+                <div>
+                    <span class="io-label">output</span>
+                    <pre>8</pre>
+                </div>
+            </div>
+
+            <h2>Constraints</h2>
+            <ul>
+                <li>\(1 \le N \le 10^5\)</li>
+                <li>\(2 \le a[i] \le 100\), for all \(1 \le i \le N\)</li>
+            </ul>
+
+            <h2>Subtasks</h2>
+            <ol>
+                <li>(15 points) \(N = 1\)</li>
+                <li>(20 points) \(N \le 8\)</li>
+                <li>(20 points) \(a[1] = a[2] = \ldots = a[N]\).</li>
+                <li>(45 points) No additional constraints.</li>
+            </ol>
+        </div>
+    </div>
+
+    <footer>
+        English translation · <span class="mono">dilshodbek.khujaev.com</span>
+    </footer>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var saved = localStorage.getItem('theme');
+            if (saved) {
+                root.dataset.theme = saved;
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                root.dataset.theme = 'dark';
+            }
+            document.getElementById('theme-toggle').addEventListener('click', function () {
+                var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+                root.dataset.theme = next;
+                localStorage.setItem('theme', next);
+            });
+        })();
+    </script>
+</body>
+</html>

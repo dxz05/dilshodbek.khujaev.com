@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Store — English statement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}]});"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-name" href="../index.html">dilshod<span>@</span>khujaev<span>.com</span></a>
+            <div class="nav-links">
+                <a href="../index.html#tasks">← Tasks authored</a>
+                <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="prob-head">
+            <h1>TV Store</h1>
+            <div class="prob-meta">
+                <span class="chip">National Selection to IOI 2025</span>
+                <a href="https://cp.uz/tasks/2024-2025/ioi-2025-saralash-2/tvstore" target="_blank">original (uzbek) ↗</a>
+            </div>
+        </header>
+
+        <div class="stmt">
+            <p>Asadullo, the president of Dadorlandtiria, owns a huge TV store. The store carries \(n\) types of TVs, numbered from \(0\) to \(n-1\). A type-\(i\) TV has a screen size of \(w[i] \times h[i]\) pixels and costs \(c[i]\) dador dollars. The store has an unlimited quantity of each type.</p>
+            <p>\(q\) customers visit Asadullo, numbered from \(0\) to \(q-1\). Customer \(j\) wants to watch a film with aspect ratio \(x[j] : y[j]\), and has \(b[j]\) dador dollars in their wallet.</p>
+            <p>When a film is played on a TV, it adapts to the screen dimensions while preserving its aspect ratio, and the leftover pixels are filled with black. Naturally, the number of used pixels must be an integer.</p>
+            <p>For example, if a TV's screen is \(1920 \times 1080\) pixels and the film's aspect ratio is \(20 : 9\), then a \(1920 \times 864\) region of the screen is used, because \(1920 : 864 = 20 : 9\). As another example, if the film's aspect ratio is an unusual value like \(37 : 17\), a \(1887 \times 867\) region of the screen can be used.</p>
+            <p>Every customer wants to watch their film at the highest possible quality. For each customer, help find a TV they can afford that maximizes the number of used pixels. If no suitable TV exists for them, return \(-1\) as the answer. If several TVs achieve the maximum quality, you may return any of them.</p>
+            <p>Note that TVs cannot be rotated.</p>
+
+            <h2>Implementation details</h2>
+            <p>You should implement the following procedure:</p>
+            <pre>int[] best_tv(int n, int[] w, int[] h, int[] c,
+              int q, int[] x, int[] y, int[] b)</pre>
+            <ul>
+                <li>\(n\): the total number of TV types.</li>
+                <li>\(w\), \(h\), \(c\): arrays of length \(n\) — information about the TVs.</li>
+                <li>\(q\): the total number of customers.</li>
+                <li>\(x\), \(y\), \(b\): arrays of length \(q\) — information about the customers.</li>
+                <li>The procedure should return an array of length \(q\), where element \(j\) is the index of the best TV for customer \(j\).</li>
+                <li>This procedure is called exactly once.</li>
+            </ul>
+
+            <h2>Example</h2>
+            <p>Consider the following call:</p>
+            <pre>best_tv(2,
+        [1920, 3840],
+        [1080, 2400],
+        [ 350,  800],
+        6,
+        [ 20,  37,  16, 1600, 4000,  20],
+        [  9,  17,  10, 1000, 4001,   9],
+        [500, 350, 900,  900, 1000, 100])</pre>
+            <p>In this example there are two TV types: the type-0 TV has a \(1920 \times 1080\) pixel screen and costs 350 dador dollars. The type-1 TV has a \(3840 \times 2400\) pixel screen and costs 800 dador dollars.</p>
+            <ul>
+                <li>Customer \(0\) has 500 dador dollars and buys the type-0 TV to watch their \(20 : 9\) film.</li>
+                <li>Customer \(1\) has 350 dador dollars and also buys the type-0 TV.</li>
+                <li>Customer \(2\) buys the type-1 TV.</li>
+                <li>Customer \(3\) also buys the type-1 TV. Note that customers \(2\) and \(3\) have the same amount of money and watch films with the same aspect ratio, because \(16 : 10 = 1600 : 1000\).</li>
+                <li>Customer \(4\) has 1000 dador dollars, but unfortunately no TV can display a \(4000 : 4001\) film.</li>
+                <li>Customer \(5\) has 100 dador dollars and cannot afford any TV.</li>
+            </ul>
+            <p>Therefore, the procedure should return \([0, 0, 1, 1, -1, -1]\).</p>
+
+            <h2>Constraints</h2>
+            <ul>
+                <li>\(1 \le n \le 100\,000\)</li>
+                <li>\(1 \le q \le 100\,000\)</li>
+                <li>\(1 \le w[i], h[i], c[i] \le 10^6\) (for all \(0 \le i < n\))</li>
+                <li>\(1 \le x[j], y[j], b[j] \le 10^6\) (for all \(0 \le j < q\))</li>
+            </ul>
+
+            <h2>Subtasks</h2>
+            <ol>
+                <li>(14 points) \(n, q \le 1000\)</li>
+                <li>(15 points) \(w[i], h[i], x[j], y[j] \le 30\) for all \(i\) and \(j\)</li>
+                <li>(25 points) \(w[i] = h[i]\) for all \(i\)</li>
+                <li>(25 points) \(c[i] = b[j] = 1\) for all \(i\) and \(j\)</li>
+                <li>(21 points) No additional constraints.</li>
+            </ol>
+
+            <h2>Sample grader</h2>
+            <p>The sample grader reads the input in the following format:</p>
+            <ul>
+                <li>line \(1\): \(n\)</li>
+                <li>line \(2 + i\) (\(0 \le i < n\)): \(w[i] \; h[i] \; c[i]\)</li>
+                <li>line \(2 + n\): \(q\)</li>
+                <li>line \(3 + n + j\) (\(0 \le j < q\)): \(x[j] \; y[j] \; b[j]\)</li>
+            </ul>
+            <p>Suppose the <code>best_tv()</code> procedure returns the array \(r\). The sample grader prints the answers in the following format:</p>
+            <ul>
+                <li>line \(1 + j\) (\(0 \le j < q\)): \(r[j]\)</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        English translation · <span class="mono">dilshodbek.khujaev.com</span>
+    </footer>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var saved = localStorage.getItem('theme');
+            if (saved) {
+                root.dataset.theme = saved;
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                root.dataset.theme = 'dark';
+            }
+            document.getElementById('theme-toggle').addEventListener('click', function () {
+                var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+                root.dataset.theme = next;
+                localStorage.setItem('theme', next);
+            });
+        })();
+    </script>
+</body>
+</html>

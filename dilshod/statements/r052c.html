@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wonderful Sequences — English statement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}]});"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-name" href="../index.html">dilshod<span>@</span>khujaev<span>.com</span></a>
+            <div class="nav-links">
+                <a href="../index.html#tasks">← Tasks authored</a>
+                <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="prob-head">
+            <h1>Wonderful Sequences</h1>
+            <div class="prob-meta">
+                <span class="chip">Robocontest Round 52 · R052C</span>
+                <span class="chip">time 2 s · memory 256 MB</span>
+                <a href="https://robocontest.uz/tasks/R052C" target="_blank">original (uzbek) ↗</a>
+                <a href="https://robocontest.uz/tasks/R052C" target="_blank">solve ↗</a>
+            </div>
+        </header>
+
+        <div class="stmt">
+            <p>A sequence \(b_1, b_2, \dots, b_m\) of length \(m\) is called <em>wonderful</em> if its two edge elements are strictly greater than every one of the other \(m-2\) elements. In other words, \(\min(b_1, b_m) > \max(b_2, b_3, \dots, b_{m-1})\) must hold. Note that if \(m \le 2\), the sequence is always wonderful.</p>
+            <p>You are given an array \(a\) of length \(n\). Your task is to split the array into several intervals so that every element belongs to exactly one interval and the elements of each interval form a wonderful sequence. Find the minimum number of intervals needed.</p>
+
+            <h2>Input</h2>
+            <p>The first line contains \(n\) (\(1 \le n \le 200\,000\)).<br>
+            The second line contains \(a_1, a_2, \dots, a_n\) (\(1 \le a_i \le 10^9\)).</p>
+
+            <h2>Output</h2>
+            <p>Print a single number — the minimum number of intervals.</p>
+
+            <h2>Examples</h2>
+            <div class="io">
+                <div>
+                    <span class="io-label">input</span>
+                    <pre>9
+4 1 5 3 9 5 7 8 9</pre>
+                </div>
+                <div>
+                    <span class="io-label">output</span>
+                    <pre>3</pre>
+                </div>
+            </div>
+            <div class="io">
+                <div>
+                    <span class="io-label">input</span>
+                    <pre>3
+2 2 2</pre>
+                </div>
+                <div>
+                    <span class="io-label">output</span>
+                    <pre>2</pre>
+                </div>
+            </div>
+            <div class="io">
+                <div>
+                    <span class="io-label">input</span>
+                    <pre>3
+3 1 2</pre>
+                </div>
+                <div>
+                    <span class="io-label">output</span>
+                    <pre>1</pre>
+                </div>
+            </div>
+
+            <h2>Note</h2>
+            <p>In the first example, the array can be split as \([4, 1, 5], [3], [9, 5, 7, 8, 9]\).<br>
+            In the second example, it can be split as \([2, 2], [2]\).<br>
+            In the third example, the whole array is wonderful, so the minimum answer is 1.</p>
+        </div>
+    </div>
+
+    <footer>
+        English translation · <span class="mono">dilshodbek.khujaev.com</span>
+    </footer>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var saved = localStorage.getItem('theme');
+            if (saved) {
+                root.dataset.theme = saved;
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                root.dataset.theme = 'dark';
+            }
+            document.getElementById('theme-toggle').addEventListener('click', function () {
+                var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+                root.dataset.theme = next;
+                localStorage.setItem('theme', next);
+            });
+        })();
+    </script>
+</body>
+</html>

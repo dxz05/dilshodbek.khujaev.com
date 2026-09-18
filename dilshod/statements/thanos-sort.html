@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanos sort — English statement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}]});"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-name" href="../index.html">dilshod<span>@</span>khujaev<span>.com</span></a>
+            <div class="nav-links">
+                <a href="../index.html#tasks">← Tasks authored</a>
+                <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="prob-head">
+            <h1>Thanos sort</h1>
+            <div class="prob-meta">
+                <span class="chip">National Olympiad · National Selection to IOI 2024</span>
+                <a href="https://cp.uz/tasks/2023-2024/ioi-2024-saralash-2/thanos-sort" target="_blank">original (uzbek) ↗</a>
+                <a href="https://robocontest.uz/contests/1283/tasks/D" target="_blank">solve ↗</a>
+            </div>
+        </header>
+
+        <div class="stmt">
+            <p><em>Thanos's sorting algorithm</em> refers to the following procedure:</p>
+            <ul>
+                <li>If the array is sorted in non-decreasing order*, Thanos does nothing.</li>
+                <li>Otherwise, using the infinity stones, Thanos splits the array in two equal halves and erases either half.</li>
+                <li>He keeps doing this until the array is sorted.</li>
+            </ul>
+            <p>You have an array \(a[1], a[2], \dots, a[N]\) of length \(N\). You are also given \(Q\) queries, each with numbers \(l\) and \(r\). Your task is to find the minimum number of times the infinity stones must be used to sort the subarray \(a[l], a[l+1], \dots, a[r]\). It is guaranteed that the length of the given subarray is a power of two.</p>
+            <p>*In non-decreasing order, every element must be no smaller than the one before it. That is, \(a[1] \le a[2] \le \ldots \le a[N]\).</p>
+
+            <h2>Input</h2>
+            <p>The first line contains \(N\) and \(Q\) — the number of elements and queries.<br>
+            The second line contains \(a[1], a[2], \dots, a[N]\) — the array elements.<br>
+            The next \(Q\) lines each contain \(l\) and \(r\) — the queries.</p>
+
+            <h2>Output</h2>
+            <p>Print the answer for each query on its own line — \(Q\) lines in total.</p>
+
+            <h2>Example</h2>
+            <p>For example, let \(N = 9\), \(a = [3, 1, 4, 1, 5, 9, 2, 6, 5]\) and \(Q = 3\).</p>
+            <p>In the first query \(l = 1\) and \(r = 8\), i.e. we want the minimum number of operations for the array \(a' = [3, 1, 4, 1, 5, 9, 2, 6]\). In the first operation we erase the left half of the array, giving \(a' = [5, 9, 2, 6]\). Suppose in the second operation we erase the right half. Then \(a' = [5, 9]\), which is sorted in non-decreasing order. Since we used 2 operations, the answer is \(2\).</p>
+            <p>In the second query \(l = 5\) and \(r = 5\). Since the array \(a' = [5]\) is already sorted, no operations are needed.</p>
+            <div class="io">
+                <div>
+                    <span class="io-label">input</span>
+                    <pre>9 3
+3 1 4 1 5 9 2 6 5
+1 8
+5 5
+3 4</pre>
+                </div>
+                <div>
+                    <span class="io-label">output</span>
+                    <pre>2
+0
+1</pre>
+                </div>
+            </div>
+
+            <h2>Constraints</h2>
+            <ul>
+                <li>\(1 \le N \le 131\,072\)</li>
+                <li>\(1 \le Q \le 200\,000\)</li>
+                <li>\(1 \le a[i] \le 10^9\), for all \(1 \le i \le N\)</li>
+                <li>\(1 \le l \le r \le N\), and \(r - l + 1 = 2^x\), where \(x\) is a non-negative integer</li>
+            </ul>
+
+            <h2>Subtasks</h2>
+            <ol>
+                <li>(6 points) In all queries \(r = l + 1\)</li>
+                <li>(13 points) \(N \le 8\); \(Q = 1\); \(l = 1\); \(r = N\)</li>
+                <li>(21 points) \(Q = 1\); \(l = 1\); \(r = N\)</li>
+                <li>(24 points) The answer for every query does not exceed \(2\).</li>
+                <li>(15 points) \(N \le 16384\)</li>
+                <li>(21 points) No additional constraints.</li>
+            </ol>
+        </div>
+    </div>
+
+    <footer>
+        English translation · <span class="mono">dilshodbek.khujaev.com</span>
+    </footer>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var saved = localStorage.getItem('theme');
+            if (saved) {
+                root.dataset.theme = saved;
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                root.dataset.theme = 'dark';
+            }
+            document.getElementById('theme-toggle').addEventListener('click', function () {
+                var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+                root.dataset.theme = next;
+                localStorage.setItem('theme', next);
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asilbek and the Strange Intervals — English statement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}]});"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-name" href="../index.html">dilshod<span>@</span>khujaev<span>.com</span></a>
+            <div class="nav-links">
+                <a href="../index.html#tasks">← Tasks authored</a>
+                <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="prob-head">
+            <h1>Asilbek and the Strange Intervals</h1>
+            <div class="prob-meta">
+                <span class="chip">National Olympiad · M063E</span>
+                <span class="chip">time 2 s · memory 256 MB</span>
+                <a href="https://robocontest.uz/tasks/M063E" target="_blank">original (uzbek) ↗</a>
+                <a href="https://robocontest.uz/tasks/M063E" target="_blank">solve ↗</a>
+            </div>
+        </header>
+
+        <div class="stmt">
+            <p>Asilbek has an array \(A\) of length \(N\) and a number \(T\). Among all intervals \(1 \le l \le r \le N\), he wants to count those satisfying \(F(l, r) \le T\). Help him.</p>
+            <p>\(F(l, r)\) is computed as follows:<br>
+            — Let \(B_1 = A_l;\ B_2 = A_{l+1};\ \dots;\ B_{r-l+1} = A_r\).<br>
+            — In one operation, any element of \(B\) may be increased or decreased by 1.<br>
+            — \(F(l, r)\) equals the minimum number of operations needed to make all elements of \(B\) equal.</p>
+            <p>For example, let \(A = [4, 2, 8, 5]\). Then \(F(1, 2) = 2\), \(F(3, 3) = 0\), and \(F(1, 4) = 7\).</p>
+
+            <h2>Input</h2>
+            <p>The first line contains two integers — \(N\) and \(T\) (\(1 \le N \le 5 \cdot 10^5\); \(0 \le T \le 5 \cdot 10^{14}\)).</p>
+            <p>The second line contains \(N\) integers — the elements of the array \(A\) (\(0 \le A_i \le 10^9\)).</p>
+
+            <h2>Output</h2>
+            <p>For the given array \(A\), print the number of pairs \(1 \le l \le r \le N\) satisfying \(F(l, r) \le T\).</p>
+
+            <h2>Examples</h2>
+            <div class="io">
+                <div>
+                    <span class="io-label">input</span>
+                    <pre>4 3
+4 2 8 5</pre>
+                </div>
+                <div>
+                    <span class="io-label">output</span>
+                    <pre>6</pre>
+                </div>
+            </div>
+            <div class="io">
+                <div>
+                    <span class="io-label">input</span>
+                    <pre>4 0
+1 1 1 1</pre>
+                </div>
+                <div>
+                    <span class="io-label">output</span>
+                    <pre>10</pre>
+                </div>
+            </div>
+
+            <h2>Note</h2>
+            <p>In the first test, the following intervals satisfy the condition: \([1, 1]\); \([2, 2]\); \([3, 3]\); \([4, 4]\); \([1, 2]\) and \([3, 4]\).</p>
+        </div>
+    </div>
+
+    <footer>
+        English translation · <span class="mono">dilshodbek.khujaev.com</span>
+    </footer>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var saved = localStorage.getItem('theme');
+            if (saved) {
+                root.dataset.theme = saved;
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                root.dataset.theme = 'dark';
+            }
+            document.getElementById('theme-toggle').addEventListener('click', function () {
+                var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+                root.dataset.theme = next;
+                localStorage.setItem('theme', next);
+            });
+        })();
+    </script>
+</body>
+</html>

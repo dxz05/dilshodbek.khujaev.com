@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diameter — English statement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}]});"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-name" href="../index.html">dilshod<span>@</span>khujaev<span>.com</span></a>
+            <div class="nav-links">
+                <a href="../index.html#tasks">← Tasks authored</a>
+                <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="prob-head">
+            <h1>Diameter</h1>
+            <div class="prob-meta">
+                <span class="chip">National Selection to IOI 2025</span>
+                <a href="https://cp.uz/tasks/2024-2025/ioi-2025-saralash-2/diameter" target="_blank">original (uzbek) ↗</a>
+            </div>
+        </header>
+
+        <div class="stmt">
+            <p>The country of Dadorlandtiria has \(n\) cities, numbered from \(0\) to \(n-1\). The country also has exactly \(n\) direct roads connecting all the cities. Namely, for every \(0 \le i \le n-1\), cities \(u[i]\) and \(v[i]\) are connected by a direct road.</p>
+            <p>Notice that all roads in Dadorlandtiria are in need of repair. The country's leader wants to know how inconvenient repairing each road would be for the population.</p>
+            <p>Specifically, each day some road is closed for repair works. The <em>inconvenience level</em> is defined as the pair of cities between which the travel time is the longest. Note that it may also become impossible to travel between some pairs of cities.</p>
+            <p>For each road, find the longest travel time in the country after that road is closed. If travel between some cities becomes impossible, return \(-1\) as the answer.</p>
+
+            <h2>Implementation details</h2>
+            <p>You should implement the following procedure:</p>
+            <pre>int[] find_diameters(int n, int[] u, int[] v)</pre>
+            <ul>
+                <li>\(n\): the total number of cities and roads.</li>
+                <li>\(u\), \(v\): arrays of length \(n\) — information about the roads.</li>
+                <li>The procedure should return an array of length \(n\), where element \(i\) is the longest travel time after closing road \(i\), or \(-1\).</li>
+                <li>This procedure is called exactly once.</li>
+            </ul>
+
+            <h2>Example</h2>
+            <p>Consider the following call:</p>
+            <pre>find_diameters(4, [1, 1, 0, 3], [0, 2, 3, 1])</pre>
+            <p>Initially, Dadorlandtiria looks like this (cities \(0,1,2,3\) with roads \(1\!-\!0\), \(1\!-\!2\), \(0\!-\!3\), \(3\!-\!1\)):</p>
+            <ul>
+                <li>While road \(0\) is under repair, the longest travel time is \(3\): \(0 \to 3 \to 1 \to 2\).</li>
+                <li>While road \(1\) is under repair, travel between cities \(0\) and \(2\) becomes impossible.</li>
+                <li>While road \(2\) is under repair, the longest travel time is \(2\): \(3 \to 1 \to 2\).</li>
+                <li>While road \(3\) is under repair, the longest travel time is \(3\): \(3 \to 0 \to 1 \to 2\).</li>
+            </ul>
+            <p>Therefore, <code>find_diameters()</code> should return the array \([3, -1, 2, 3]\).</p>
+
+            <h2>Constraints</h2>
+            <ul>
+                <li>\(3 \le n \le 200\,000\)</li>
+                <li>\(0 \le u[i], v[i] \le n-1\) and \(u[i] \neq v[i]\) (for all \(0 \le i < n\))</li>
+                <li>No pair \((u[i], v[i])\) appears twice.</li>
+                <li>Initially the country is connected, i.e. it is possible to travel between any pair of cities.</li>
+            </ul>
+
+            <h2>Subtasks</h2>
+            <ol>
+                <li>(3 points) \(u[i] = i\) and \(v[i] = (i+1) \bmod n\) for all \(0 \le i < n\)</li>
+                <li>(9 points) \(n \le 100\)</li>
+                <li>(21 points) \(n \le 2000\)</li>
+                <li>(9 points) \(k \le 2000\), where \(k\) is the number of roads whose answer is not \(-1\).</li>
+                <li>(58 points) No additional constraints.</li>
+            </ol>
+
+            <h2>Sample grader</h2>
+            <p>The sample grader reads the input in the following format:</p>
+            <ul>
+                <li>line \(1\): \(n\)</li>
+                <li>line \(2 + i\) (\(0 \le i < n\)): \(u[i] \; v[i]\)</li>
+            </ul>
+            <p>Suppose <code>find_diameters()</code> returns the array \(r\). The sample grader prints:</p>
+            <ul>
+                <li>line \(1\): \(r[0] \; r[1] \; \ldots \; r[n-1]\)</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        English translation · <span class="mono">dilshodbek.khujaev.com</span>
+    </footer>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var saved = localStorage.getItem('theme');
+            if (saved) {
+                root.dataset.theme = saved;
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                root.dataset.theme = 'dark';
+            }
+            document.getElementById('theme-toggle').addEventListener('click', function () {
+                var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+                root.dataset.theme = next;
+                localStorage.setItem('theme', next);
+            });
+        })();
+    </script>
+</body>
+</html>

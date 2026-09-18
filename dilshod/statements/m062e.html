@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries and Cities — English statement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}]});"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-name" href="../index.html">dilshod<span>@</span>khujaev<span>.com</span></a>
+            <div class="nav-links">
+                <a href="../index.html#tasks">← Tasks authored</a>
+                <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="prob-head">
+            <h1>Countries and Cities</h1>
+            <div class="prob-meta">
+                <span class="chip">National Olympiad · M062E</span>
+                <span class="chip">time 2 s · memory 256 MB</span>
+                <a href="https://robocontest.uz/tasks/M062E" target="_blank">original (uzbek) ↗</a>
+                <a href="https://robocontest.uz/tasks/M062E" target="_blank">solve ↗</a>
+            </div>
+        </header>
+
+        <div class="stmt">
+            <p>There are \(N\) cities in total, spread across \(K\) countries. The first country has \(a_1\) cities, the second has \(a_2\), ..., the \(K\)-th has \(a_K\) cities, and they are numbered consecutively. Namely:<br>
+            — cities of country 1 are numbered \(1\) through \(a_1\);<br>
+            — cities of country 2 are numbered \(a_1+1\) through \(a_1+a_2\);<br>
+            — …<br>
+            — cities of country \(K\) are numbered \(a_1+a_2+\dots+a_{K-1}+1\) through \(N\).</p>
+            <p>Roads have been built between the cities. For every \(1 \le i < N\), there is a road between cities \(i\) and \(i+1\). Additionally, \(M\) extra roads each connect two cities <strong>within the same country</strong>.</p>
+            <p>You are given \(Q\) queries, each containing two cities \(X\) and \(Y\) <strong>located in different countries</strong>. Your task is to find the number of <strong>shortest</strong> paths from city \(X\) to city \(Y\). Since the answer can be large, print it modulo \(10^9+7\).</p>
+
+            <h2>Input</h2>
+            <p>The first line contains three integers — \(K, N, M\) (\(1 \le K, N, M \le 3 \cdot 10^5;\ K \le N\)).</p>
+            <p>The second line contains \(a_1, a_2, \dots, a_K\) (\(a_i \ge 1\); \(a_1+a_2+\dots+a_K = N\)).</p>
+            <p>Each of the next \(M\) lines contains two integers \(u\) and \(v\), meaning there is an extra road between cities \(u\) and \(v\) (\(1 \le u, v \le N\); \(|u-v| \ge 2\)). <u>It is guaranteed that the cities connected by extra roads lie in the same country.</u></p>
+            <p>The next line contains a single integer \(Q\) (\(1 \le Q \le 3 \cdot 10^5\)).</p>
+            <p>Each of the next \(Q\) lines contains cities \(X\) and \(Y\) (\(1 \le X, Y \le N\)). <u>It is guaranteed that they lie in different countries.</u></p>
+
+            <h2>Output</h2>
+            <p>For each query, print the answer on a new line — the number of shortest paths modulo \(10^9+7\).</p>
+
+            <h2>Example</h2>
+            <div class="io">
+                <div>
+                    <span class="io-label">input</span>
+                    <pre>3 13 5
+4 5 4
+1 3
+4 2
+8 6
+10 13
+5 7
+3
+7 12
+4 5
+1 13</pre>
+                </div>
+                <div>
+                    <span class="io-label">output</span>
+                    <pre>2
+1
+4</pre>
+                </div>
+            </div>
+
+            <h2>Note</h2>
+            <p>The picture shows 3 countries and 13 cities. Cities 1, 2, 3 belong to country A; cities 4–9 belong to country B; and cities 10–13 belong to country C. There are also extra roads between cities 1–3, 2–4, 5–7, 6–8, and 10–13.</p>
+            <p><img src="https://robocontest.uz/storage/user_photos/17/graph.png" alt="Countries and cities example graph"></p>
+        </div>
+    </div>
+
+    <footer>
+        English translation · <span class="mono">dilshodbek.khujaev.com</span>
+    </footer>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var saved = localStorage.getItem('theme');
+            if (saved) {
+                root.dataset.theme = saved;
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                root.dataset.theme = 'dark';
+            }
+            document.getElementById('theme-toggle').addEventListener('click', function () {
+                var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+                root.dataset.theme = next;
+                localStorage.setItem('theme', next);
+            });
+        })();
+    </script>
+</body>
+</html>
