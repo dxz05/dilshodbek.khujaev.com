@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countries and Cities — English statement</title>
+    <title>Countries and Cities – English statement</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -36,22 +36,22 @@
 
         <div class="stmt">
             <p>There are \(N\) cities in total, spread across \(K\) countries. The first country has \(a_1\) cities, the second has \(a_2\), ..., the \(K\)-th has \(a_K\) cities, and they are numbered consecutively. Namely:<br>
-            — cities of country 1 are numbered \(1\) through \(a_1\);<br>
-            — cities of country 2 are numbered \(a_1+1\) through \(a_1+a_2\);<br>
-            — …<br>
-            — cities of country \(K\) are numbered \(a_1+a_2+\dots+a_{K-1}+1\) through \(N\).</p>
+            – cities of country 1 are numbered \(1\) through \(a_1\);<br>
+            – cities of country 2 are numbered \(a_1+1\) through \(a_1+a_2\);<br>
+            – …<br>
+            – cities of country \(K\) are numbered \(a_1+a_2+\dots+a_{K-1}+1\) through \(N\).</p>
             <p>Roads have been built between the cities. For every \(1 \le i < N\), there is a road between cities \(i\) and \(i+1\). Additionally, \(M\) extra roads each connect two cities <strong>within the same country</strong>.</p>
             <p>You are given \(Q\) queries, each containing two cities \(X\) and \(Y\) <strong>located in different countries</strong>. Your task is to find the number of <strong>shortest</strong> paths from city \(X\) to city \(Y\). Since the answer can be large, print it modulo \(10^9+7\).</p>
 
             <h2>Input</h2>
-            <p>The first line contains three integers — \(K, N, M\) (\(1 \le K, N, M \le 3 \cdot 10^5;\ K \le N\)).</p>
+            <p>The first line contains three integers – \(K, N, M\) (\(1 \le K, N, M \le 3 \cdot 10^5;\ K \le N\)).</p>
             <p>The second line contains \(a_1, a_2, \dots, a_K\) (\(a_i \ge 1\); \(a_1+a_2+\dots+a_K = N\)).</p>
             <p>Each of the next \(M\) lines contains two integers \(u\) and \(v\), meaning there is an extra road between cities \(u\) and \(v\) (\(1 \le u, v \le N\); \(|u-v| \ge 2\)). <u>It is guaranteed that the cities connected by extra roads lie in the same country.</u></p>
             <p>The next line contains a single integer \(Q\) (\(1 \le Q \le 3 \cdot 10^5\)).</p>
             <p>Each of the next \(Q\) lines contains cities \(X\) and \(Y\) (\(1 \le X, Y \le N\)). <u>It is guaranteed that they lie in different countries.</u></p>
 
             <h2>Output</h2>
-            <p>For each query, print the answer on a new line — the number of shortest paths modulo \(10^9+7\).</p>
+            <p>For each query, print the answer on a new line – the number of shortest paths modulo \(10^9+7\).</p>
 
             <h2>Example</h2>
             <div class="io">

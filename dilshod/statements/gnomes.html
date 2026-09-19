@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gnomes — English statement</title>
+    <title>Gnomes – English statement</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -51,20 +51,20 @@
             <pre>int say_number(int id, int[] a)</pre>
             <ul>
                 <li>\(id\): the gnome's number.</li>
-                <li>\(a\): an array of length \(n-1\) — the hat colors of all gnomes except gnome \(id\).</li>
+                <li>\(a\): an array of length \(n-1\) – the hat colors of all gnomes except gnome \(id\).</li>
                 <li>The procedure should return the number that gnome \(id\) should say.</li>
             </ul>
             <pre>int answer(int id, int[] a, int[] c)</pre>
             <ul>
                 <li>\(id\): the gnome's number.</li>
-                <li>\(a\): an array of length \(n-1\) — the hat colors of all gnomes except gnome \(id\).</li>
+                <li>\(a\): an array of length \(n-1\) – the hat colors of all gnomes except gnome \(id\).</li>
                 <li>\(c\): an array of length \(n\), where \(c[i]\) is the number said by gnome \(i\).</li>
                 <li>The procedure should return the hat color of gnome \(id\).</li>
             </ul>
             <p>Each test contains several independent scenarios. If a test has \(t\) scenarios, the above programs are used three times in the following way:</p>
             <p>In the first part, the <code>init</code> procedure is called once (\(n\), \(k\) and \(h\) are the same in all scenarios). Then the <code>say_number</code> procedure is called exactly \(t \cdot n\) times (\(n\) times for each scenario, i.e. once per gnome). The returned results are stored in the system.</p>
             <p>The second program is restarted. The <code>init</code> procedure is called once. Then the <code>answer</code> procedure is called exactly \(t \cdot n\) times. <strong>In each call, an arbitrary scenario may be chosen.</strong></p>
-            <p>In general, when the code is restarted all variables are cleared — <strong>data stored in static or global variables after the first part cannot be used in the second part.</strong></p>
+            <p>In general, when the code is restarted all variables are cleared – <strong>data stored in static or global variables after the first part cannot be used in the second part.</strong></p>
 
             <h2>Example</h2>
             <p>Suppose \(n = 5\), \(k = 12\) and \(h = 100\). Let the gnomes' hat numbers be \(p = [4, 11, 7, 0, 2]\). Then the following sequence of calls occurs:</p>
@@ -123,7 +123,7 @@ answer(4, [4, 11, 7, 0], [6, 2, 7, 5, 10])</pre>
             <ul>
                 <li>line 1: \(m\)</li>
             </ul>
-            <p>In the next \(t\) lines, the answer for each scenario (\(r\) — the returned array):</p>
+            <p>In the next \(t\) lines, the answer for each scenario (\(r\) – the returned array):</p>
             <ul>
                 <li>\(r[0] \; r[1] \; \ldots \; r[n - 1]\)</li>
             </ul>
